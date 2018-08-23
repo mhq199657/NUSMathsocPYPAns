@@ -1,0 +1,192 @@
+\PassOptionsToPackage{svgnames}{xcolor}
+\documentclass[12pt]{article}
+
+
+
+\usepackage[margin=1in]{geometry}  
+\usepackage{graphicx}             
+\usepackage{amsmath}              
+\usepackage{amsfonts}              
+\usepackage{framed}   
+\usepackage{mathtools}            
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{amsthm}
+\usepackage[nottoc]{tocbibind}
+\usepackage{bm}
+\usepackage{enumitem}
+
+
+\DeclareMathOperator{\Tr}{Tr}
+ \newcommand{\im}{\mathrm{i}}
+  \newcommand{\diff}{\mathrm{d}}
+  \newcommand{\col}{\mathrm{Col}}
+  \newcommand{\row}{\mathrm{R}}
+  \newcommand{\kerne}{\mathrm{Ker}}
+  \newcommand{\nul}{\mathrm{Null}}
+  \newcommand{\nullity}{\mathrm{nullity}}
+  \newcommand{\rank}{\mathrm{rank}}
+  \newcommand{\Hom}{\mathrm{Hom}}
+  \newcommand{\id}{\mathrm{id}}
+  \newcommand{\ima}{\mathrm{Im}}
+  \newcommand{\lcm}{\mathrm{lcm}}
+  \newcommand{\diag}{\mathrm{diag}}
+  \newcommand{\expec}{\mathrm{E}}
+  \newcommand{\var}{\mathrm{var}}
+  \newcommand{\cov}{\mathrm{cov}}
+  \newcommand{\inv}{^{-1}}
+  \newcommand{\str}{^\ast}
+  \newcommand{\Poi}{\mathrm{Poisson}}
+  \newcommand\norm[1]{\left\lVert#1\right\rVert}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0em}
+\newcommand{\Lim}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \lim_{#1}\;$}}}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{notation}{Notation}[section]
+\theoremstyle{definition}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\spn}{Span}
+\setcounter{tocdepth}{1}
+\begin{document}
+
+\title{PYP Answer - MA2216 AY1617Sem2}
+\author{Ma Hongqiang}
+\maketitle
+\begin{enumerate}
+  \item \begin{enumerate}
+  \item We can get the cdf of $X$ by integrating $f_X(x)$:
+  \[
+F_X(x)=\begin{cases}
+0&x\leq -1\\
+\frac{1}{4}(1+x)^2&-1<x<1\\
+1&x\geq 1
+\end{cases}
+  \]
+  Since $Y=X^2$, we see that $F_Y(y)=P(Y<y)=P(X^2<y)$. Therefore,
+  \[
+F_Y(y)=\begin{cases}
+0&y\leq 0\\
+P(-\sqrt{y}<x<\sqrt{y})=\frac{1}{4}(1+\sqrt{y})^2-\frac{1}{4}(1-\sqrt{y})^2=\sqrt{y}&0<y<1\\
+1&y\geq 1
+\end{cases}
+  \]
+  By differentiating the cdf of $Y$, we have
+  \[
+f_Y(y)=\begin{cases}
+\frac{1}{2}y^{-\frac{1}{2}}&0<y<1\\
+0&\text{elsewhere}
+\end{cases}
+  \]
+  \item As $y$ vanishes in region other than $[0,1]$, we can evaluate $\expec(Y)$ and $\var(Y)$ in $[0,1]$ only.
+  \[
+\expec(Y)=\int_0^1 yf_Y(y)\diff y = \int_0^1 \frac{1}{2}y^\frac{1}{2}\diff y = \left[\frac{1}{3}y^\frac{3}{2}\right]_0^1 = \frac{1}{3}
+  \]
+  And similarly,
+  \[
+\var(Y) = \int_0^1(y^2-\expec(Y)^2)f_Y(y)\diff y = \int_0^1(y^2-\frac{1}{9})\frac{1}{2}y^{-\frac{1}{2}}\diff y = \frac{4}{45}
+  \]
+        \end{enumerate}
+\item\begin{enumerate}
+\item Since $Y\sim\Poi(n)$, we can express $Y = \sum_{i=1}^nY_i$, where $Y_i\sim\Poi(1)$ for $i=1,\ldots, n$. We note $Y_i$ has mean $\mu=1$ and variance $\sigma^2=1$.\\When $n$ is large, apply Central Limit Theorem on $Y_i,i=1,\ldots, n$, we have
+\[
+\frac{\sum_{i=1}^n Y_i-n(1)}{\sqrt{1}\sqrt{n}}=\frac{Y-n}{\sqrt{n}}\sim Z(0,1)
+\]
+which implies $P(Y<y)\approx \Phi(\frac{y-n}{\sqrt{n}})$.\\
+By continuity correction, \[P(Y=n)=P(Y<n+\frac{1}{2})-P(Y<n-\frac{1}{2})=\Phi(\frac{1}{2\sqrt{n}})-\Phi(\frac{-1}{2\sqrt{n}})\;\;\;(\#)\]. 
+\item On one hand, $P(Y=n)=\frac{e^{-n}n^n}{n!}$, since $Y\sim\Poi(n)$. \\On the other hand, $P(Y=n)$ can be evaluated using (\#). When $n$ is large, $\frac{1}{2\sqrt{n}}$ is small, so the RHS of (\#) becomes the area of rectangle on the pdf of $Z(0,1)$ distribution with base length $(\frac{1}{2\sqrt{n}}-(-\frac{1}{2\sqrt{n}}))=\frac{1}{\sqrt{n}}$ and height given by the pdf $\frac{1}{\sqrt{2\pi}}$.Therefore, we have
+\[
+\frac{\left(\frac{n}{e}\right)^n}{n!}=\frac{1}{\sqrt{2\pi n}}
+\]
+Rearranging the above equation implies the result. 
+\end{enumerate}
+\item\begin{enumerate}
+\item $\expec(X_1)=0, \var(X_1)=1, \cov(X_1,X_2)=\rho$.
+\item We calculate $\expec(Z)$ by conditioning on $X_1$:
+\begin{align*}
+\expec(Z)&=\expec(\expec[Z|X_1])\\
+&=\expec(Z|X_1<X_2)P(X_1<X_2)+\expec(Z|X_1\geq X_2)P(X_1\geq X_2)\\
+&=\expec(X_2)P(X_1<X_2)+\expec(X_1)P(X_1\geq X_2)
+\end{align*}
+Next, calculate $\expec(Y)$ by conditioning also on $X_1$:
+\begin{align*}
+\expec(Y)&=\expec(\expec[Y|X_1])\\
+&=\expec(Y|X_1<X_2)P(X_1<X_2)+\expec(Y|X_1\geq X_2)P(X_1\geq X_2)\\
+&=\expec(X_1)P(X_1<X_2)+\expec(X_2)P(X_1\geq X_2)
+\end{align*}
+Adding the two equations above, we have
+\begin{align*}
+\expec(Y)+\expec(Z)&=\expec(X_1)(P(X_1<X_2)+P(X_1\geq X_2))+\expec(X_2)(P(X_1<X_2)+P(X_1\geq X_2))\\&=\expec(X_1)+\expec(X_2)
+\end{align*}
+\item We recognise that $X_1$ follows a normal distribution with mean 0.\\ By Chebyshev's inequality,
+\[
+P(|X_1-0|\geq 3)\leq \frac{1^2}{3^2}=\frac{1}{9}
+\]
+Therefore, $P(X_1\geq 3)\leq \frac{1}{18}$, by symmetry of normal distribution.
+\item We have, from the joint density,
+\begin{align*}
+\mathbb{P}\left\{\min(X_1,X_2) \leq y\right\} &= 1 - \mathbb{P}\left\{ X_1 > y, X_2 > y \right\} \\
+&= 1 - \int_{y}^{\infty} \int_y^{\infty} f_{X_1,X_2}(s,t)dsdt \\
+&= 1 -\int_y^{\infty} f_{X_2}(t)\int_y^{\infty} f_{X_1|X_2}(s,t) ds dt
+\end{align*}
+where 
+\[
+f_{X_2} (t)=\frac{1}{\sqrt{2\pi}}e^{-\frac{t^2}{2}}, \qquad f_{X_1|X_2}(s,t)=\frac{1}{\sqrt{2\pi(1-\rho^2)}}e^{-\frac{(s-\rho t)^2}{2(1-\rho^2)}}
+\]
+and so
+\begin{align*}
+\mathbb{P}\left\{\min(X_1,X_2) \leq y\right\} &= 1 - \int_{y}^{\infty} \varphi(t) \left(1 - \Phi\left( \frac{y -\rho t}{\sqrt{1-\rho^2}}\right) \right) dt. \\
+&= 1 - \int_{y}^{\infty} \varphi(t) \Phi\left( \frac{\rho t - y }{\sqrt{1-\rho^2}} \right) dt
+\end{align*}
+To get the density we differentiate with respect to $y$ giving
+\begin{align*}
+f_{Y}(y) &= -\frac{\partial}{\partial y}\int_{y}^{\infty}\varphi(t)\Phi\left(\frac{\rho t - y}{\sqrt{1-\rho^2}}\right) dt \\
+&= \varphi(y)\Phi\left(\frac{\rho y - y}{\sqrt{1-\rho^2}}\right) + \int_{y}^{\infty}\varphi(t) \frac{1}{\sqrt{1-\rho^2}}\frac{1}{\sqrt{2\pi}}e^{-\frac{(\rho t - y)^2}{2(1-\rho^2)}}dt \tag{1}
+\end{align*}
+Completing the square of the last term in the above equation we have
+\begin{align*}
+\varphi(t)\frac{1}{\sqrt{2\pi(1-\rho^2)}}e^{-\frac{(\rho t-y)^2}{2(1-\rho^2)}} &= \frac{1}{\sqrt{2\pi}}\frac{1}{\sqrt{2\pi(1-\rho^2)}}e^{-\frac{1}{2(1-\rho^2)}\left((1-\rho^2)t^2 +(\rho t -y)^2  \right)} \\
+&=\frac{1}{\sqrt{2\pi}}\frac{1}{\sqrt{2\pi(1-\rho^2)}}e^{-\frac{1}{2(1-\rho^2)}\left(t^2 - 2 t \rho y + \rho^2 y^2 + (1-\rho^2)y^2  \right)} \\
+&= \frac{1}{\sqrt{2\pi}}e^{-\frac{y^2}{2}}\frac{1}{\sqrt{2\pi(1-\rho^2)}}e^{-\frac{(t-\rho y)^2}{2(1-\rho^2)}}.
+\end{align*}
+So putting this back in to (1) we get
+\begin{align*}
+f_{Y}(y) &= \varphi(y)\Phi\left(\frac{\rho y -y}{\sqrt{1-\rho^2}}\right) + \varphi(y)\int_y^{\infty} \frac{1}{\sqrt{2\pi(1-\rho^2)}}e^{-\frac{(t-\rho y)^2}{2(1-\rho^2)}}dt \\
+&= \varphi(y)\Phi\left(\frac{\rho y -y}{\sqrt{1-\rho^2}}\right) +  \varphi(y)\left( 1 - \Phi\left(\frac{y - \rho y}{\sqrt{1-\rho^2}}\right)\right) \\
+&= 2\varphi(y)\Phi\left(\frac{\rho y -y}{\sqrt{1-\rho^2}}\right).
+\end{align*}
+\end{enumerate}
+\item \begin{enumerate}
+  \item We note that
+  \[
+P(X=x)=\frac{\binom{m}{x}\binom{N-m}{n-x}}{\binom{N}{n}}
+  \]
+  and
+  \[
+P(X=x-1)=\frac{\binom{m}{x-1}\binom{N-m}{n-x+1}}{\binom{N}{n}}
+  \]
+  So
+  \begin{align*}
+\frac{P(X=x)}{P(X=x-1)}&=\frac{\frac{m!}{x!(m-x)!}\frac{(N-m)!}{(N-m-n+x)!(n-x)!}}{\frac{m!}{(x-1)!(m-x+1)!}\frac{(N-m)!}{(N-m-n+x-1)!(n-x+1)!}}\\
+&=\frac{m-x+1}{x}\cdot\frac{n-x+1}{N-m-n+x}=(\#)\\
+  \end{align*}
+  Similarly,
+  \begin{align*}
+\frac{P(Y=x)}{P(Y=x-1)}&=\frac{\binom{n}{x}\left(\frac{m}{n}\right)^x\left(\frac{N-m}{N}\right)^{n-x}}{\binom{n}{x-1}\left(\frac{m}{n}\right)^{x-1}\left(\frac{N-m}{N}\right)^{n-x+1}}\\
+&=\frac{n-x+1}{x}\frac{m}{N-m}=(*)
+  \end{align*}
+  To show the equality of limit, write
+  \begin{align*}
+\lim_{m,N\to\infty}(\#)&=\frac{n-x+1}{x}\frac{1-\frac{x-1}{m}}{\frac{N}{m}-1-\frac{n-x}{m}}\\&=\frac{n-x+1}{x}\frac{1}{p-1}\\&=\frac{n-x+1}{x}\frac{m}{N-m}=(*)
+  \end{align*}
+  \item Let the number of cocainer packets be $m$. Then the scenario will have the following possibilities to occur
+  \[
+P(X=4)\times P(X=0)\approx\binom{4}{4}\left(\frac{m}{496}\right)^4\binom{2}{0}\left(\frac{492-(m-4)}{492}\right)
+  \]
+  By differentiating the expression to solve for maximum, we have $m=\frac{992}{3}$, which gives the number 0.0233 if substituted back.
+  \item So $20-6 = 14$ more packets is sufficient. 
+\end{enumerate}
+\end{enumerate}
+\end{document}

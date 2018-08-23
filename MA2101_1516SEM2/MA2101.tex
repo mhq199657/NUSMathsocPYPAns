@@ -1,0 +1,257 @@
+\PassOptionsToPackage{svgnames}{xcolor}
+\documentclass[12pt]{article}
+
+
+
+\usepackage[margin=1in]{geometry}  
+\usepackage{graphicx}             
+\usepackage{amsmath}              
+\usepackage{amsfonts}              
+\usepackage{framed}               
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{amsthm}
+\usepackage[nottoc]{tocbibind}
+\usepackage{bm} 
+\usepackage{enumitem}
+
+
+\DeclareMathOperator{\Tr}{Tr}
+ \newcommand{\im}{\mathrm{i}}
+  \newcommand{\diff}{\mathrm{d}}
+  \newcommand{\col}{\mathrm{Col}}
+  \newcommand{\row}{\mathrm{R}}
+  \newcommand{\kerne}{\mathrm{Ker}}
+  \newcommand{\nul}{\mathrm{Null}}
+  \newcommand{\nullity}{\mathrm{nullity}}
+  \newcommand{\rank}{\mathrm{rank}}
+  \newcommand{\Hom}{\mathrm{Hom}}
+  \newcommand{\id}{\mathrm{id}}
+  \newcommand{\ima}{\mathrm{Im}}
+  \newcommand{\lcm}{\mathrm{lcm}}
+  \newcommand{\inv}{^{-1}}
+  \newcommand{\str}{^\ast}
+  \newcommand\norm[1]{\left\lVert#1\right\rVert}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0em}
+\newcommand{\Lim}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \lim_{#1}\;$}}}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{notation}{Notation}[section]
+\theoremstyle{definition}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\spn}{Span}
+\setcounter{tocdepth}{1}
+\begin{document}
+
+\title{PYP Answer - MA2101 AY1516Sem2}
+\author{Ma Hongqiang}
+\maketitle
+\begin{enumerate}
+  \item %Q1
+  \begin{enumerate}
+    \item We shall show that $T$ respects addition and scalar multiplication.\\Observe, for $X,Y\in \mathbb{M}_2(\mathbb{R})$ and $c\in \mathbb{R}$,
+    \begin{align*}
+    T(X+Y)&=A(X+Y)-(X+Y)A =AX+AY-XA-YA\\ 
+    &= (AX-XA)+(AY-YA)=T(X)+T(Y) 
+    \end{align*}
+    and
+    \[
+T(cX)=A(cX)=cAX = c(AX) = cT(X)
+    \]
+    \item
+    \begin{enumerate}\item Denote the vectors in $\mathcal{B}$ in the same sequence as that in the question, as $b_1,b_2,b_3,b_4$. \\We have
+    \[
+    [T]_\mathcal{B}=([T(b_1)]_\mathcal{B},[T(b_2)]_\mathcal{B},[T(b_3)]_\mathcal{B},[T(b_4)]_\mathcal{B})
+    \]
+    Here, for instance,
+    \[
+T(b_1) = \begin{pmatrix}2&0\\0&5\end{pmatrix}\begin{pmatrix}1&0\\0&0\end{pmatrix}-\begin{pmatrix}1&0\\0&0\end{pmatrix}\begin{pmatrix}2&0\\0&5\end{pmatrix}=\begin{pmatrix}0&0\\0&0\end{pmatrix}=0b_1+0b_2+0b_3+0b_4
+    \]
+    Therefore, $[T(b_1)]_\mathcal{B} = \begin{pmatrix}0\\0\\0\\0\end{pmatrix}$.\\
+    Using the same process, we have
+    \[
+[T]_\mathcal{B} = \begin{pmatrix}0&0&0&0\\0&-3&0&0\\0&0&3&0\\0&0&0&0\end{pmatrix}
+    \]
+    \item \begin{align*}\det(T-xI)&=\det([T]_\mathcal{B}-xI)\\
+         &= \det \begin{pmatrix}-x&0&0&0\\0&-3-x&0&0\\0&0&3-x&0\\0&0&0&-x\end{pmatrix}\\
+         &=x^2(x+3)(x-3)
+    \end{align*}
+  \end{enumerate}
+  \end{enumerate}
+  \item \begin{enumerate}
+  \item  \begin{align*}
+  &T \text{ is injective}\\
+  \Leftrightarrow\;\;\;&\kerne(T)=\{0\}.\\
+  \Leftrightarrow\;\;\;&T\begin{pmatrix}a\\b\\c\end{pmatrix}=0\text{ has only solution }\begin{pmatrix}0\\0\\0\end{pmatrix}. \\
+  \Leftrightarrow\;\;\;&aX+bY+cZ = 0\text{ only has solution }(a,b,c) = (0,0,0)\\
+  \Leftrightarrow\;\;\;&X,Y,Z\text{ linearly independent}
+  \end{align*}
+  \item \begin{enumerate}
+\item The rank of $T$ equals to the rank of $[T]_\mathcal{A}^\mathcal{B}$ in (ii), so it has rank 2. Use rank-nullity theorem, nullity = $\dim \mathbb{R}^3-\text{rank} = 3-2 = 1$.
+  \item Let $\mathcal{A}=(a_1,a_2,a_3)$ and $\mathcal{B}=(b_1,b_2,b_3,b_4)$. \\We have
+  \[
+[T]_\mathcal{A}^\mathcal{B} = ([T(a_1)]_B,[T(a_2)]_B,[T(a_3)]_B)
+  \]
+  For instance,
+  \[
+T(a_1) = \begin{pmatrix}1&-1\\1&-1\end{pmatrix} = \begin{pmatrix}1&0\\0&-1\end{pmatrix}+(-1)\begin{pmatrix}0&1\\-1&0\end{pmatrix} = b_2+(-1)b_4
+  \]
+  Therefore, $[T(a_1)]_\mathcal{B} = \begin{pmatrix}0\\1\\0\\-1\end{pmatrix}$.\\
+  Using the same process, we have
+  \[
+[T]_\mathcal{A}^\mathcal{B}=\begin{pmatrix}0&0&0\\1&-2&1\\0&0&0\\-1&1&0\end{pmatrix}
+  \]
+        \end{enumerate}
+\end{enumerate}
+\item 
+\begin{enumerate}
+  \item Since $V$ is finite dimensional, we apply inducion on $k$. The claim is trivial when $k = 1$.\\Now suppose that the claim holds when $k = r$. We proceed to show that the claim is true when $k = r+1$.\\
+  From assumption, we have
+  \[
+\sum_{i=1}^r \alpha_iv_i = 0
+  \]
+  has only trivial solutions. Then for the case $k = r+1$. Suppose $v_1,\ldots, v_r,v_{r+1}$ is not linearly independent, then, after relabelling
+  \[
+v_{r+1} = \sum_{i=1}^r \alpha_i v_i
+  \], where $\alpha_i\neq 0$ for some $1\leq i\leq r$.\\Apply $T$ on both sides yields
+  \[
+\lambda_{r+1}w_{r+1}=\sum_{i=1}^r \alpha_i\lambda_iw_i\;\;\;\;\;(1)
+  \]
+  whereas multiply $\lambda_{r+1}$ on both sides yields
+  \[
+\lambda_{r+1}w_{r+1}=\sum_{i=1}^r \alpha_i\lambda_{r+1}w_i\;\;\;\;\;(2)
+  \]
+  $(2)-(1)$, we have
+  \[
+0 =\sum_{i=1}^r\alpha_i(\lambda_i-\lambda_{r+1})w_i
+  \]
+  Since by assumption, $w_i, i = 1,\ldots, r$ are independent, we have
+  \[
+\alpha_i(\lambda_i-\lambda_{r+1})= 0 \text{ for all }i = 1,\ldots, n 
+  \]
+  and for those $i$, where $\alpha_i\neq 0$, we have
+  \[
+\lambda_i = \lambda_{r+1}
+  \]
+  which is a contradiction about the pairwise distinctiveness of $\lambda_i$.Therefore, the claim must be true for $k=r+1$, and the claim for any $k$ is true.
+  \item \begin{enumerate}
+  \item We first find the eigenvalues. Let $\lambda$ be one eigenvalue, so $Tv = \lambda v$. We have $v^t = \lambda v$, and $v = \lambda v^t$ by taking transpose. It yields,
+  \[
+v^t = \lambda^2 v^t
+  \]
+  which implies the eigenvalues are only $\lambda = \pm 1$.\\Solving $Av=\lambda v$ for each $\lambda$, we will have
+\[
+P = \begin{pmatrix}
+0&0&0&0&0&0&0&0&-1\\
+0&0&-1&0&0&0&0&-1&0\\
+0&-1&0&0&0&-1&0&0&0&\\
+0&0&1&0&0&0&0&-1&0\\
+0&0&0&0&0&0&-1&0&0&\\
+-1&0&0&0&-1&0&0&0&0\\
+0&1&0&0&0&-1&0&0&0\\
+1&0&0&0&-1&0&0&0&0\\
+0&0&0&-1&0&0&0&0&0
+\end{pmatrix}
+\]
+and
+\[
+D=\begin{pmatrix}
+-1&&&&&&&&\\
+&-1&&&&&&&\\
+&&-1&&&&&&\\
+&&&1&&&&&\\
+&&&&1&&&&\\
+&&&&&1&&&\\
+&&&&&&1&&\\
+&&&&&&&1&\\
+&&&&&&&&1
+\end{pmatrix}
+\]
+\item 
+\[
+\det(T)=\det(D) = (-1)^3\times 1^6 = -1
+\]
+\end{enumerate}
+  \end{enumerate}
+\item
+\begin{enumerate}
+  \item Denote $B = \{v_1,v_2,v_3\}$. Clearly, $\lambda neq 0$. Let $k = \frac{1}{\lambda}$.\\The claim is then equivalent to: There are at most three distinct value of $k\in\mathbb{C}$ such that $\{kv_1 + p_1, kv_2 + p_2, kv_3 + p_3\}$ fails to be a basis of $V$.\\
+  Let us represent $p_i$ in terms of basis $B$.
+  \begin{align*}
+  p_1 &= a_1v_1 + a_2v_2 + a_3v_3\\
+  p_2 &= b_1v_1 + b_2v_2 + b_3v_3\\
+  p_3 &= c_1v_1 + c_2v_2 + c_3v_3
+  \end{align*}
+  Then the claim is equivalent to: There are at most three distinct values of $k\in\mathbb{C}$ such that $\{(k+a_1)v_1+a_2v_2+a_3v_3,b_1v_1+(k+b_2)v_2+b_3v_3,c_1v_1+c_2v_2+(k+c_3)v_3\}$ fails to be a basis for $V$.\\
+  The above claim is equivalent to: There are at most three distinct values of $k\in\mathbb{C}$ such that
+  \[
+  \det\left(\begin{matrix}k+a_1&a_2&a_3 \\ b_1&k+b_2&b_3 \\ c_1&c_2&k+c_3\end{matrix}\right) = 0\;\;\;(\#)
+  \]
+  The determinant is a polynomial of degree $3$ in $k$, and by Fundamental Theorem of Algebra, it has most three roots. This proves our claim.
+  \item Note that 
+  \begin{align*}
+  p_1&=v_1+v_2\\
+  p_2&=v_1+v_3\\
+  p_3&=v_2+v_3\\
+  \end{align*}
+  So,\[
+  \begin{array}{ccc}
+  a_1=1&a_2 = 1&a_3=0\\
+  b_1=1&b_2=0&b_3=1\\
+  c_1=0&c_2=1&c_3=1
+\end{array}
+  \]
+  And substituting in the (\#) equation,
+  \[
+\det\left(\begin{matrix}k+1&1&0 \\ 1&k&1 \\ 0&1&k+1\end{matrix}\right)=0
+  \]
+  we have $k=-2,-1,1$. So $\lambda = -\frac{1}{2},-1,1$.
+  \end{enumerate}
+  \item\begin{enumerate}\item
+  We shall show that $\Tr(Y^\ast X)$ satisfies sesquilinearity, symmetry and positivity.\\
+  \begin{itemize} 
+    \item Sesquilinearity \hfill
+    \begin{align*}
+&\langle a_1X_1+a_2X_2,Y\rangle\\ =&\Tr(Y^\ast (a_1X_1+a_2X_2))\\=&a_1\Tr(Y^\ast X_1)+a_2\Tr(Y^\ast X_2)\\=&a_1\langle X_1,Y\rangle + a_2\langle X_2,Y\rangle
+    \end{align*}
+     \begin{align*}
+&\langle X,b_1Y_1+b_2Y_2\rangle\\ =&\Tr(((b_1Y_1+b_2Y_2)^\ast)X)\\=&\Tr((\overline{b_1}Y_1\str +\overline{b_2}Y_2\str)X) \\=&\overline{b_1}\Tr(Y_1^\ast X)+\overline{b_2}\Tr(Y_2^\ast X)\\=&\overline{b_1}\langle X_1,Y\rangle + \overline{b_2}\langle X_2,Y\rangle
+    \end{align*}
+    \item Symmetry
+    \begin{align*}
+    &\overline{\langle Y,X\rangle} \\
+    =&\overline{\Tr(X^\ast Y)}\\
+    =&\Tr(\overline{X^\ast Y})\\
+    =&\Tr(X^t \overline{Y})\\
+    =&\Tr((X^t \overline{Y})^t)\\
+    =&\Tr(Y^\ast X)\\
+    =&\langle X,Y\rangle
+    \end{align*}
+    \item Positivity 
+    \begin{align*}
+\langle X,X\rangle &= \Tr(X^\ast X)\\
+&=\sum_{k=1}^n\sum_{l=1}^n X_{kl}\overline{X_{kl}}>0 
+    \end{align*}
+with equality if and only if  $X_{kl}=0$ for all $k,l$ i.e., X is the $\mathbf{0}$ matrix.
+  \end{itemize}
+  \item Applying Gram Schmidt Process employed with the above inner-product.
+  \begin{align*}
+  v_1&=A\\
+  v_2 &= B-\frac{\langle B,v_1\rangle}{\langle v_1,v_1\rangle}v_1\\
+  &= \begin{pmatrix}1&0&0\\i&0&0\\0&-i&-1\end{pmatrix}-\frac{2}{4}v_1\\
+  &=\begin{pmatrix}\frac{1}{2}&-\frac{1}{2}i&0\\i&0&\frac{1}{2}i\\0&-i&-\frac{1}{2}\end{pmatrix}
+  \end{align*}
+  Normalise $v_1$ and $v_2$, we have
+  \[
+b_1 = \frac{v_1}{\norm{v_1}}=\frac{1}{\sqrt{4}}\frac{1}{2}\begin{pmatrix}1&i&0\\0&0&-1\\0&0&-1\end{pmatrix}
+  \]
+  and
+  \[
+b_2 = \frac{v_2}{\norm{v_2}} = \frac{1}{\sqrt{3}}\begin{pmatrix}\frac{1}{2}&-\frac{1}{2}i&0\\i&0&\frac{1}{2}i\\0&-i&-\frac{1}{2}\end{pmatrix}
+  \]
+\end{enumerate}
+\end{enumerate}
+\end{document}

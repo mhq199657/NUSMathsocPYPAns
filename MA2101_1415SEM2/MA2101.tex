@@ -1,0 +1,226 @@
+\PassOptionsToPackage{svgnames}{xcolor}
+\documentclass[12pt]{article}
+
+
+
+\usepackage[margin=1in]{geometry}  
+\usepackage{graphicx}             
+\usepackage{amsmath}              
+\usepackage{amsfonts}              
+\usepackage{framed}               
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{amsthm}
+\usepackage[nottoc]{tocbibind}
+\usepackage{bm}
+\usepackage{enumitem}
+
+
+\DeclareMathOperator{\Tr}{Tr}
+ \newcommand{\im}{\mathrm{i}}
+  \newcommand{\diff}{\mathrm{d}}
+  \newcommand{\col}{\mathrm{Col}}
+  \newcommand{\row}{\mathrm{R}}
+  \newcommand{\kerne}{\mathrm{Ker}}
+  \newcommand{\nul}{\mathrm{Null}}
+  \newcommand{\nullity}{\mathrm{nullity}}
+  \newcommand{\rank}{\mathrm{rank}}
+  \newcommand{\Hom}{\mathrm{Hom}}
+  \newcommand{\id}{\mathrm{id}}
+  \newcommand{\ima}{\mathrm{Im}}
+  \newcommand{\lcm}{\mathrm{lcm}}
+  \newcommand{\inv}{^{-1}}
+  \newcommand{\str}{^\ast}
+  \newcommand\norm[1]{\left\lVert#1\right\rVert}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0em}
+\newcommand{\Lim}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \lim_{#1}\;$}}}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{notation}{Notation}[section]
+\theoremstyle{definition}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\spn}{Span}
+\setcounter{tocdepth}{1}
+\begin{document}
+
+\title{PYP Answer - MA2101 AY1415Sem2}
+\author{Ma Hongqiang}
+\maketitle
+\begin{enumerate}
+  \item %Question 1
+  \begin{enumerate}
+    \item %i
+    \begin{align*}
+p_A(x) &= |xI-A| = \det\begin{pmatrix} x-2&-1&3\\&x+1&0\\&&x+1\end{pmatrix}\\
+&=(x-2)(x+1)^2
+    \end{align*}
+    \item $m)A(x)$ and $p_A(x)$ have the same zero sets, therefore $m_A(x) = (x-2)(x+1)^i, i\geq 1$. First we try $i = 1$.
+    \[
+m_A(A) = (A-2I)(A+I) = 0\;\;\;\;\;(\#)
+    \]
+    Therefore, $(x-2)(x+1)$ kills $A$, so the minimum polynomial is $m_A(x) = (x-2)(x+1)$.
+    \item Simple $m_A(x)$ has only simple zeros in $\mathbf{R}$, $A$ is diagonalisable in $\mathbf{R}$.
+    \item From $(\#)$, we have $A^2-A-2I = 0$. Therefore, $A^2$ is dependent on $A$ and $I_3$. Recursively, we will have $A^i$ dependent on $A$ and $I_3$, where $2\leq i \leq 9$.
+    Next $c_1A+c_2I = 0$ clearly has trivial solultion $(c_1,c_2) = (0,0)$. Therefore, $A$ and $I_3$ are linearly independent. Hence, the basis of $W$ is
+    \[
+\{I_3,A\}
+    \]
+  \end{enumerate}
+  \item Let $Y=PZ$.\\
+  By writing $Y^\prime= AY$ in terms of $Z^\prime$ and $Z$, we have
+  \[
+PZ^\prime = APZ \Rightarrow Z^\prime = P^{-1}APZ = \begin{pmatrix}1&0&0\\0&2&1\\0&0&2\end{pmatrix}Z
+  \]
+  which yields
+  \[
+  \begin{cases}
+  z_1^\prime = z_1&\Rightarrow z_1 = C_1e^x\\
+  z_2^\prime =2z_2+z_3&(\ast)\\
+  z_3^\prime =2z_3&\Rightarrow z_3 = C_2e^x
+  \end{cases}
+  \]
+  This leaves us with the unknown $z_2$. From $(\ast)$, $z_2^\prime = 2z_2+C_2e^x$.Using hint,
+  \[
+\mu = C_3e^{-2x}
+  \] 
+  and therefore
+  \[
+z_2 = -C_2e^x+C_4e^{2x}
+  \]
+  By back substituting $z$, we yield
+  \[
+\begin{cases}
+y_1 = -C_2e^x+C_4e^{2x}\\
+y_2 = C_4e^{2x}\\
+y_3 = (C_1-C_2)e^x +C_4e^{2x}
+\end{cases}
+  \]
+  \item %Question 3
+  \begin{enumerate}
+    \item We construct $V_1$ as such. Suppose $T(V)$ is spanned by $B$. For each basis vector $\mathbf{b}_i$ in $W$, we pick $\mathbf{v}_i$ such that $T(\mathbf{v}_i) =\mathbf{b}_i$. The vector subspace $V_1$ is spanned by the union of all such $\mathbf{v}_i$. 
+    \begin{enumerate}
+      \item We first show $T_1$ is a linear transformation. We check $T_1$ respects addition and scalar multiplication. Let $\mathbf{u},\mathbf{v}\in V_1$ and $c\in F$.
+      \begin{align*}
+T_1(\mathbf{u}+\mathbf{v}) &= T(\mathbf{u}+\mathbf{v}) \\
+&=T(\mathbf{u})+T(\mathbf{v})\\
+&=T_1(\mathbf{u})+T_1(\mathbf{v})
+      \end{align*}
+      and
+      \begin{align*}
+      T_1(c\mathbf{u}) &=T(c\mathbf{u})\\
+      &=cT(\mathbf{u})\\
+      &=cT_1(\mathbf{u})
+      \end{align*}
+      Therefore $T_1$ is a linear transformation.\\Next we show that $T_1$ is injective.
+      Suppose $T_1(\mathbf{v}) = T_1(\mathbf{u})\Rightarrow T_1(\mathbf{v})-T_1(\mathbf{u}) = T_1(\mathbf{v}-\mathbf{u}) = 0$, where
+      \[
+      \mathbf{v} = \sum_{i\in I} c_i\mathbf{v}_i\;\;\;\mathbf{u} = \sum_{i\in I} d_i\mathbf{v}_i
+      \]then
+      \begin{align*}
+T_1(\mathbf{v}-\mathbf{u}) &= T_1(\sum_{i\in I}c_i\mathbf{v}_i-\sum_{i\in I}d_i\mathbf{v}_i)\\&=\sum_{i\in I}(c_i-d_i)T_1(\mathbf{v}_i)\\&=\sum_{i\in I}(c_i-d_i)\mathbf{b}_i = 0
+      \end{align*}
+      And since $\mathbf{b}_i$ are linearly indepedent, we have $c_i-d_i = 0$ for all $i\in I$, and therefore $\mathbf{v} = \mathbf{u}$. This proves the injective part.
+      \item By our choice of $V_1$, we have
+      \[
+\forall w = T(u), \exists v\in V_1, T_1(v) = w
+      \]
+      Therefore, $\ima(T_1) \supseteq \ima(T)$.
+      For the other direction, suppose $\mathbf{w}\in \ima(T_1)$, then $\mathbf{w} = T(u)$ for some $u\in V$, and therefore $ \ima(T_1)\subseteq \ima(T)$.
+    \end{enumerate}
+    \item Suppose the contrary is true, then we have $0\neq \mathbf{v}\in V_1\cap \kerne(T)$.
+    Then $T_1(\mathbf{v}) = 0 = T_1(0)$, which contradicts the injective property of $T_1$. Therefore the claim is true.
+    \item We can always docompose any vector $\mathbf{v}\in V$ in such way:
+    \[
+V\ni v = v_1+u
+    \]
+    where $v_1\in V_1$ and $u\in V\setminus V_1$. Furthermore, we can choose $v_1$ such that $T(v) = T_1(v_1)$, as $T_1$ and $T$ always have the same image. 
+    Then, for any $v$, we have
+    \[
+T(v) = T_1(v_1)+T(u) \Rightarrow 0 = T(u)
+    \]
+    Therefore, $u\in \kerne(T)$. This proves the claim.
+  \end{enumerate}
+  \item %Question 4
+  \begin{enumerate}
+    \item We have $T_1\mathbf{v}_1 = \lambda_1\mathbf{v}_1$. Applying $T_2$ on both slide, and using the commutativity of $T_2$ and $T_1$ we have
+    \[
+T_2T_1\mathbf{v}_1 = T_2(\lambda_1\mathbf{v}_1)\Rightarrow T_1(T_2\mathbf{v}_1) = \lambda_1(T_2\mathbf{v}_1)
+    \]
+    Therefore, $T_2\mathbf{v}_1\in V_{\lambda_1}(T_1)$, so
+    \[
+    T_2\mathbf{v}_1 = \lambda_2\mathbf{v}_1
+    \]
+    for some $\lambda_2\in F$.
+    \item Choose $\mathbf{v}_2\in V_{\lambda_1}(T_1)$, then we have
+    \begin{align*}
+S_1\mathbf{v}_2 &= (1+\lambda_1+2\lambda_1^2+\cdots +5\lambda_1^5)\mathbf{v}_2:=\mu_1\mathbf{v}_2 \text{ and}\\
+S_2\mathbf{v}_2 &= (1+\lambda_2+2\lambda_2^2+\cdots +5\lambda_2^5)\mathbf{v}_2:=\mu_2\mathbf{v}_2
+    \end{align*}
+    \item See (b).
+  \end{enumerate}
+  \item %Question 5
+  \begin{enumerate}
+    \item 
+    \begin{align*}
+    \norm{\mathbf{x}+\mathbf{y}}^2 &= \langle \mathbf{x}+\mathbf{y},\mathbf{x}+\mathbf{y}\rangle\\
+    &= \langle \mathbf{x},\mathbf{x}\rangle + \langle \mathbf{x},\mathbf{y}\rangle+\langle \mathbf{y},\mathbf{x}\rangle+\langle \mathbf{y},\mathbf{y}\rangle\\
+    &=\langle \mathbf{x},\mathbf{x}\rangle+0+\overline{0}+\langle \mathbf{y},\mathbf{y}\rangle\\
+    &=\norm{\mathbf{x}}^2+\norm{\mathbf{y}}^2
+    \end{align*}
+    \item We want to have $\langle \mathbf{z},\mathbf{v}\rangle = 0$, that is
+    \[
+\langle \mathbf{u}-\alpha\mathbf{v},\mathbf{v}\rangle = 0\Rightarrow \langle \mathbf{u},\mathbf{u}\rangle - \alpha\langle\mathbf{v},\mathbf{v}\rangle = 0
+    \]
+    Solving which, we have 
+    \[
+\alpha = \frac{\langle \mathbf{u},\mathbf{v}\rangle}{\langle \mathbf{v},\mathbf{v}\rangle}
+    \]
+    \item By (b), we have, for all $\mathbf{u}$, $\mathbf{u} = \mathbf{z}+\alpha\mathbf{v}$, where $\langle \mathbf{z},\mathbf{v} \rangle= 0$. Then
+    \begin{align*}
+\norm{\mathbf{u}}^2 &= \langle \mathbf{z}+\alpha\mathbf{v},\mathbf{z}+\alpha\mathbf{v}\rangle = \norm{\mathbf{z}}^2+\norm{\alpha\mathbf{v}}^2 = \norm{\mathbf{z}}^2+\frac{|\langle \mathbf{u},\mathbf{v}\rangle|^2}{|\langle\mathbf{v},\mathbf{v}\rangle|^2}\norm{\mathbf{v}}^2 \\
+    &=\frac{|\langle \mathbf{u},\mathbf{v}\rangle|^2}{\norm{\mathbf{v}}^2}+\norm{\mathbf{z}}^2\geq \frac{|\langle \mathbf{u},\mathbf{v}\rangle|^2}{\norm{\mathbf{v}}^2}
+    \end{align*}
+    This proves the claim.
+    \item Suppose $\mathbf{u} = k\mathbf{v}$, where $k\in \mathbf{C}$. then
+    \[
+|\langle\mathbf{u},\mathbf{v}\rangle| = |k\langle \mathbf{v},\mathbf{v}\rangle| = |k|\norm{\mathbf{v}}^2 = \norm{k\mathbf{v}}\norm{\mathbf{v}} = \norm{\mathbf{u}}\norm{\mathbf{v}}
+    \]
+    In a similar way, we can prove the second part of the claim.
+    \item From (c), we see the equality holds if and only if $\norm{\mathbf{z}}=0$, which happends if and only if $\mathbf{u} =\alpha \mathbf{v}$.
+  \end{enumerate}
+  \item %Question 6
+  \begin{enumerate}
+    \item False. $V$ and $W$ may not have the same dimension.
+    \item True. $m(x)$ has only simple zeroes.
+    \item True. By principle axis theorem.
+    \item True. Since $m(x)$ has only simple zeroes.
+    \item False.
+    \item True.
+    \item True.
+  \end{enumerate}
+  \item %Question 7
+  \begin{enumerate}
+    \item Consider any $x\in V_i$. Choose a positive integer $p$ such that $(T-\lambda I)^p(x) = 0$. Then
+    \[
+(T-\lambda I)^pT(x) = T(T-\lambda I)^p(x) = T(0) = 0
+    \]
+    \item Direction ($\subseteq$) is clear. For ($\supseteq$), we claim that $V_i$ and $V_j$ are disjoint. Then for $x\in V_i$, $m_T(T)(x)= \prod_{j\neq i}(T-\lambda_j)^{m_j} (T-\lambda_i)^{m_i}(x)= 0$. Suppose $x\not\in \kerne(T-\lambda_iI)$, then $m_T(T)(x) = \prod_{j\neq i}(T-\lambda_j)^{m_j} y \neq 0$, Therefore, we have the inclusion.\\Next we prove that all generalised eigenspaces $V_i$ are disjoint. Suppose the contrary. Then there is $x\in \beta_i\cap\beta_j$, where $\beta_i,\beta_j$ are basis of $V_i,V_j, i\neq j$. We will observe that $T-\lambda_iI$ is one-to-one on $V_j$, and therefore, $(T-\lambda_iI)^p(x)\neq 0$ for any positive integer $p$. But this contradicts the fact that $x\in V_i$, and the result follows.\\
+    The observation is a direct result of (a). Let $x\in V_i$ and $(T-\lambda_j I)(x) = 0$. By way of contradiction, suppose that $x\neq 0$. Let $p$ be the smallest integer for which $(T-\lambda_i I)^p(x) = 0$, and let $y = (T-\lambda_i I)^{p-1}(x)$. Then
+    \[
+(T-\lambda_iI)(y) = (T-\lambda_i I)^p(x) = 0
+    \]
+    and hence $y$ is in the eigenspace of $\lambda_i$. Furthermore,
+    \[
+(T-\lambda_jI)(y) = (T-\lambda_jI)(T-\lambda_iI)^{p-1}(x) = (T-\lambda_iI)^{p-1}(T-\lambda_jI)(x) = 0
+    \]
+    so that $y$ is also in the eigenspace of $\lambda_j$. But eigenspace of different eigenvector intersects only trivially. Thus, $y=9$, contradiction. So $x=0$, and the restriction of $T-\lambda_j$ to $V_i$ is one-to-one.
+    \item We have proven this in (b), by showing $V_i$ and $V_j$ intersect trivially when $i\neq j$.
+    \item This is shown in (b). Suppose not, $m(T)$ can no longer kill.
+    \item First, we observe $q_i(x)$ are coprime, then using hint, we have $\sum q_i(x)u_i(x) = 1$. Then let $x = T$, we will have $V = \sum_{i=1}^n V_i$. Together with (d), we show the claim.
+    \item We consider $T$ in the basis of $B = (B_1,B_2,\ldots, B_k)$, where $B_i$ is the basis of $V_i$. Then a suitable choice of basis, which makes $[T]_B$ diagonal, will suggests that $[T_i]_B$ has $n_i$ diagonal entry, and a power of $m_i$ is required to kill. Therefore we have this final result. 
+  \end{enumerate}
+\end{enumerate}
+\end{document}

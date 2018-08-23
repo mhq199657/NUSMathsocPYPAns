@@ -1,0 +1,175 @@
+\PassOptionsToPackage{svgnames}{xcolor}
+\documentclass[12pt]{article}
+
+
+
+\usepackage[margin=1in]{geometry}  
+\usepackage{graphicx}             
+\usepackage{amsmath}              
+\usepackage{amsfonts}              
+\usepackage{framed}   
+\usepackage{mathtools}            
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{amsthm}
+\usepackage[nottoc]{tocbibind}
+\usepackage{bm}
+\usepackage{enumitem}
+
+
+\DeclareMathOperator{\Tr}{Tr}
+ \newcommand{\im}{\mathrm{i}}
+  \newcommand{\diff}{\mathrm{d}}
+  \newcommand{\col}{\mathrm{Col}}
+  \newcommand{\row}{\mathrm{R}}
+  \newcommand{\kerne}{\mathrm{Ker}}
+  \newcommand{\nul}{\mathrm{Null}}
+  \newcommand{\nullity}{\mathrm{nullity}}
+  \newcommand{\rank}{\mathrm{rank}}
+  \newcommand{\Hom}{\mathrm{Hom}}
+  \newcommand{\id}{\mathrm{id}}
+  \newcommand{\ima}{\mathrm{Im}}
+  \newcommand{\lcm}{\mathrm{lcm}}
+  \newcommand{\diag}{\mathrm{diag}}
+  \newcommand{\expec}{\mathrm{E}}
+  \newcommand{\var}{\mathrm{var}}
+  \newcommand{\cov}{\mathrm{cov}}
+  \newcommand{\inv}{^{-1}}
+  \newcommand{\str}{^\ast}
+  \newcommand{\corr}{\mathrm{corr}}
+  \newcommand{\Poi}{\mathrm{Poisson}}
+  \newcommand\norm[1]{\left\lVert#1\right\rVert}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0em}
+\newcommand{\Lim}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \lim_{#1}\;$}}}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{notation}{Notation}[section]
+\theoremstyle{definition}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\spn}{Span}
+\setcounter{tocdepth}{1}
+\begin{document}
+
+\title{PYP Answer - MA3269 AY1718Sem1}
+\author{Ma Hongqiang}
+\maketitle
+\begin{enumerate}
+  \item \begin{enumerate}%Q1
+    \item \begin{enumerate}%ai and aii
+      \item \begin{table}[h]
+      \centering
+      \begin{tabular}{c|c|c|c|c}
+      & $(0,K_1]$ & $(K_1, K_2]$ & $(K_2,K_3]$&$(K_3, \infty)$\\\hline
+      Long 1 $K_1$ call& $0$&$S_T-K_1$&$S_T-K_1$&$S_T-K_1$\\\hline
+      Short 2 $K_2$ call & $0$ & $0$ & $-2S_T+2K_2$ &$-2S_T+2K_2$\\\hline
+      Long 1 $K_3$ call &$0$&$0$&$0$&$S_T-K_3$\\\hline
+      Sum&0&$S_T-K_1$&$-S_T+K_3$&$S_T-K_3$
+      \end{tabular}
+      \end{table}
+      Since all the sums are greater or equal to $0$ yet the investment is initially costing $0$, it is an arbitrage opportunity.
+      \item We have
+      \begin{align*}
+      &C_i+Ke^{-rT}=P_i+S_0, i = 1,2,3\\
+\Rightarrow& C_2-\frac{1}{2}(C_1+C_3) = P_2-\frac{1}{2}(P_1+P_3)\leq 0\\
+      \end{align*}
+    \end{enumerate}
+    \item \begin{enumerate}%bi and bii
+      \item We employ the two-period binomial model. Here,  $q=0.613636$ and let $a:=e^{-r\delta t}=0.970446$. $F_1^u=a(q\times 0+(1-q)(42-44\times 0.92))=0.569916$ and $F_1^d=a(q(42-40.48)+(1-q)(42-33.856))=3.95871$ and finally $F_0 = a(qF_1^u+(1-q)F_1^d)=1.82$.
+      \item Here $q$ and $a$ remains the same. $F_1^u = a(q\times 8.4+(1-q)\times 0.48)=5.18218$ and $F_1^d=a(q\times 0.48)=0.28584$ and $F_0 = 3.19$.
+    \end{enumerate}
+  \end{enumerate}
+  \item \begin{enumerate} %Q2 i - vi
+    \item By definition of certainty equivalent, 
+    \[
+U(c)=0.2U(0.8)+0.6U(1)+0.2U(1.25)\Rightarrow c=1.00
+    \]
+    \item Solving $U(1)>pU(0.8)+3pU(1)+(1-4p)U(1.25)$ gives $p > 0.201$.
+    \item We calculate ARA of $U^2(x)$ to be $-\frac{-(x+1)^{-2}}{(x+1)^{-1}}=(1+x)^{-1}$.
+    By definition of ARA, we have $-\frac{R_1''}{R_1'}=(1+x)^{-1}$. Therefore,
+    \begin{align*}
+    \ln(R')'&=-(x+1)^{-1}\\
+    \ln(R')&=c_1-\ln(x+1)\\
+    R'&=A_1(x+1)^{-1}\\
+    R(x)&=A_1\ln(x+1)+A_2 \text{ where }A_1>0, A_2\in\mathbb{R}
+    \end{align*}
+    \item $W=1-\frac{1}{V}=1-V^{-1}$. Differentiating once gives $W'=V^{-2}V'$ and twice gives $W''=-2V^{-3}V'+V^{-2}V''<0$ since $V>0, V'>0$ and $V''<0$. Therefore, investor C is risk averse.
+    \item $W_\text{ARA}=-\frac{W''}{W'}=2V^{-1}-\frac{V''}{V'}$. Since $V_\text{ARA}=-\frac{V''}{V'}$, we have $W_\text{ARA}=V_\text{ARA}+2V^{-1}>V_\text{ARA}$ for all $x>0$. Therefore, C is globally more risk averse than B.
+    \item We have $Z=W\circ U^{-1}$. Therefore, $Z'=W'(U^{-1})\frac{1}{U'(U^{-1})}$ and $Z''=W''(U^{-1})\frac{1}{U'(U^{-1})}-W'(U^{-1})(U'(U^{-1}))^{-2}U''(U^{-1})\frac{1}{U'(U^{-1})}<0$.
+  \end{enumerate}
+  \item \begin{enumerate}
+    \item ($\Rightarrow$) By two-fund theorem, all frontier portfolios are spanned by $\frac{\mathbf{C}^{-1}\mathbf{1}}{\mathbf{1}^\text{T}\mathbf{C}^{-1}\mathbf{1}}$ and $\frac{\mathbf{C}^{-1}\bm{\mu}}{\mathbf{1}^\text{T}\mathbf{C}^{-1}\bm{\mu}}$. Since $\mathbf{u}$ is uncorrelated with all frontier portfolio, we have
+    \begin{align*}
+    \mathbf{w}_u^\text{T}\mathbf{C}\mathbf{C}^{-1}\mathbf{1}&=0\text{ and}\\
+    \mathbf{w}_u^\text{T}\mathbf{C}\mathbf{C}^{-1}\bm{\mu}&=0
+    \end{align*} 
+    The first equation shows $\mathbf{u}$ is hedge and second equation show $\mathbf{u}$ is zero-mean.\\
+    ($\Leftarrow$) From the condition zero-mean and hedge we can arrive at the above pair of equations. Then any portfolio $x$'s correlation with this portfolio is
+    \[
+\mathbf{w}_u^\text{T}\mathbf{C}\mathbf{w}_x = c_1\mathbf{w}_u^\text{T}\mathbf{C}\mathbf{C}^{-1}\mathbf{1}+c_2\mathbf{w}_u^\text{T}\mathbf{C}\mathbf{C}^{-1}\bm{\mu} = 0
+    \] 
+    by two fund theorem. 
+    \item We want to $\min\limits_\mathbf{w} \mathbf{w}^\text{T}\bm{\mu}-\frac{\gamma}{2}(\mathbf{w}^\text{T}\mathbf{Cw})$ subject to the constraints $\mathbf{w}^\text{T}\mathbf{w}_0=0$.\\
+    Employ the Lagrange multiplier, we have
+    \[
+L = \mathbf{w}^\text{T}\bm{\mu}-\frac{\gamma}{2}(\mathbf{w}^\text{T}\mathbf{Cw}) - \lambda(\mathbf{w}^\text{T}\mathbf{w}_0)
+    \]
+    and
+    \[
+\frac{\diff L}{\diff \mathbf{w}}=\bm{\mu}-\gamma\mathbf{Cw}-\lambda \mathbf{w}_0 = 0
+    \]
+    gives 
+    \[
+\mathbf{w} =\frac{1}{\gamma}\mathbf{C}^{-1} (\bm{\mu}-\lambda\mathbf{w}_0)
+    \]
+    and substituting it into the constraints, we have
+    \[
+\frac{1}{\gamma}\bm{\mu}^\text{T}\mathbf{C}^{-1}\mathbf{w}_0-\frac{\lambda}{\gamma}\mathbf{w}_0\mathbf{C}^{-1}\mathbf{w}_0=0
+    \]
+    so we have $s-\lambda p = 0\Rightarrow \lambda = \frac{s}{p}$.\\
+    Therefore, $\mathbf{w} =\frac{1}{\gamma}\mathbf{C}^{-1} (\bm{\mu}-\frac{s}{p}\mathbf{w}_0)$.
+    \item By definition of beta, $\beta_m = \frac{\mu_m-r_f}{\mu_m-r_f}=1$.\\
+    Since $\sigma_m^2 = \mathbf{w}_m^\text{T}\mathbf{Cw}$, equivalently we want to show $\mathbf{w}_m^\text{T}\mathbf{Cw}=\frac{1}{\bm{\beta}^\text{T}\mathbf{C}^{-1}\bm{\beta}}$. Since $\beta_m = \bm{\beta}^\text{T}\mathbf{w}_m$, we evaluate $\mathbf{w}_m^\text{T}\mathbf{Cw}\bm{\beta}^\text{T}\mathbf{C}^{-1}\bm{\beta} = 1$, which proves the claim.
+  \end{enumerate}
+  \item \begin{enumerate}
+    \item From the table, the weight vector is
+    \[
+\mathbf{w}_m=\frac{1}{150\times2+100\times 2+80\times2.5+100\times 3}\begin{pmatrix}150\times2\\100\times2\\80\times 2.5\\100\times 3\end{pmatrix}=\begin{pmatrix} 0.3\\0.2\\0.2\\0.3\end{pmatrix}
+    \]
+    Portfolio mean is $\mu_m = \bm{\mu}^\text{T}\mathbf{w}_m=0.103$.
+    \item From the asymptote, the minimum-variance frontier has the format of
+    \[
+9\sigma^2=\frac{47}{417}(100\mu-\frac{359}{47})^2+c
+    \]
+    where $c$ is some constant. It should also satisfy the market portfolio, so
+    \[
+9\times 0.11 = \frac{47}{417}(100\times 0.103-\frac{359}{47})^2+c
+    \]
+    so $c=\frac{9}{47}$. Then the required frontier is
+    \[
+\sigma^2 = \frac{470000}{3753}(\mu-\frac{359}{4700})^2+\frac{1}{47}
+    \]
+    where $x=\frac{470000}{3753}$, $y=\frac{359}{4700}$ and $z=\frac{1}{47}$.
+    \item GMVP occurs when $\mu_g=\frac{359}{4700}$ and $\sigma^2_g=\frac{1}{47}$.
+    \item Implicit differentiation on the frontier gives
+    \[
+18\sigma\diff\sigma = \frac{9400}{417}(100\mu-\frac{359}{47})\diff\mu
+    \]
+    Therefore, at market portfolio, we have
+    \[
+\frac{\diff\mu}{\diff\sigma}=\frac{18\times \sqrt{0.11}}{\frac{9400}{417}(100\times 0.103-\frac{359}{47})}=\frac{3}{10}\sqrt{0.11}
+    \]
+    Therefore, the CML admits the following equation
+    \[
+\mu-0.103=\frac{3}{10}\sqrt{0.11}(\sigma-\sqrt{0.11})
+    \]
+    \item $r_f = 0.103+\frac{3}{10}\sqrt{0.11}(0-\sqrt{0.11})=0.07$.
+    \item $\beta_3 = \frac{\mu_3-r_f}{\mu_m-r_f}=\frac{10}{11}$.
+    \item Since $\sigma_g^2=\frac{1}{a}$, we have $a = \frac{1}{\frac{1}{47}}=47$.\\
+    Then $b = a\mu_g = \frac{359}{100}$,\\
+    From frontier, we have $\frac{a}{ac-b^2}=\frac{470000}{3753}$, so $c = \frac{1411}{5000}$.
+  \end{enumerate} 
+\end{enumerate}
+\end{document}

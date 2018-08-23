@@ -1,0 +1,129 @@
+\PassOptionsToPackage{svgnames}{xcolor}
+\documentclass[12pt]{article}
+
+
+
+\usepackage[margin=1in]{geometry}  
+\usepackage{graphicx}             
+\usepackage{amsmath}              
+\usepackage{amsfonts}              
+\usepackage{framed}               
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{amsthm}
+\usepackage[nottoc]{tocbibind}
+\usepackage{bm}
+\usepackage{enumitem}
+
+
+\DeclareMathOperator{\Tr}{Tr}
+ \newcommand{\im}{\mathrm{i}}
+  \newcommand{\diff}{\mathrm{d}}
+  \newcommand{\col}{\mathrm{Col}}
+  \newcommand{\row}{\mathrm{R}}
+  \newcommand{\kerne}{\mathrm{Ker}}
+  \newcommand{\nul}{\mathrm{Null}}
+  \newcommand{\nullity}{\mathrm{nullity}}
+  \newcommand{\rank}{\mathrm{rank}}
+  \newcommand{\Hom}{\mathrm{Hom}}
+  \newcommand{\id}{\mathrm{id}}
+  \newcommand{\ima}{\mathrm{Im}}
+  \newcommand{\lcm}{\mathrm{lcm}}
+  \newcommand{\diag}{\mathrm{diag}}
+  \newcommand{\inv}{^{-1}}
+  \newcommand{\str}{^\ast}
+  \newcommand\norm[1]{\left\lVert#1\right\rVert}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0em}
+\newcommand{\Lim}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \lim_{#1}\;$}}}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{notation}{Notation}[section]
+\theoremstyle{definition}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\spn}{Span}
+\setcounter{tocdepth}{1}
+\begin{document}
+
+\title{PYP Answer - MA2101 AY1718Sem1}
+\author{Ma Hongqiang}
+\maketitle
+\begin{enumerate}
+  \item Basically let $Z=P^{-1}Y$, i.e., $Y=PZ$. We can then write $Y' = PY$ as $Z'=P^{-1}APZ = \begin{pmatrix}1&2\\0&-1\end{pmatrix}Z$, i.e.,
+  \begin{align*}
+  \begin{cases}
+  z_1'&=z_1+2z_2\\
+  z_2'&=-z_2
+  \end{cases}
+  \end{align*}
+  Therefore, $z_2 = Ae^{-x}$. And $z_1'-z_1=2Ae^{-x}$. Applying formula given, we have $z_1 = Be^x-Ae^{-x}$.
+  \item \begin{enumerate}
+          \item Solving $|\lambda I-A|=\det\begin{pmatrix}\lambda-2&2\\2&\lambda-5\end{pmatrix} = \lambda^2-7\lambda+6=0$ where $\lambda$ is the eigenvalue, we have $\lambda_1=1$ and $\lambda_2 = 6$.
+          \item We need to solve $\begin{pmatrix}\lambda-2&2\\2&\lambda-5\end{pmatrix}\mathbf{x}=0$ for $\mathbf{x}$. For $\lambda_1=1$, we have $\begin{pmatrix}-1&-2\\-2&-4\end{pmatrix}\mathbf{x}=0\Rightarrow B_1=\begin{pmatrix}2\\1\end{pmatrix}$. Similarly, $B_2=\begin{pmatrix}-1\\2\end{pmatrix}$.
+          \item Let $P=\begin{pmatrix}\mathbf{B_1}^t&\mathbf{B_2}^t\end{pmatrix}$. Then one admissible $D$ will be $\begin{pmatrix}30&0\\0&5\end{pmatrix}=P^tAP$.
+        \end{enumerate}
+  \item \begin{enumerate}
+          \item Suppose the contrary that $C$ is linearly dependent, then there exists an index set where $\sum_{i\in I, |I|<\infty} \mathbf{c}_i=0$ has non-trivial solution, where $\mathbf{c}_i\in C$. Then by applying $T$ to both sides, we arrive to the conclusion that $\sum_{i\in I, |I|<\infty }\mathbf{d}_i=0$ has non-trivial solution, which contradicts with the fact that $D$ is a linearly independent subset. Therefore, $C$ is a linearly independent subset of $V$.
+          \item Since $T:V\to W$ is subjective linear transformation, we only need to verify that $T$ is injective. Suppose $0\neq \mathbf{v}\in N(T)$, i.e., $T(\mathbf{v})=0$. Since $C$ is a basis of $V$, we can write $\mathbf{v}=\sum_{i\in I} a_i\mathbf{c}_i$ for some index set $I$. Therefore, $0=T(\sum_{i\in I} a_i\mathbf{c}_i)=\sum_{i\in I}a_iT(\mathbf{c}_i)=\sum_{i\in I}a_i\mathbf{d}_i$. Since $D$ is linearly independent, then we have $a_i=0$ for all $i\in I$. In other words, $\mathbf{v}=\mathbf{0}$. So the kernel of $T$ is $\{\mathbf{0}\}$, showing injectivity of $T$.
+        \end{enumerate}
+  \item \begin{enumerate}
+          \item A map $f$ from vector space $V$ to vector space $U$ is an isomorphism if (1) $f$ is a linear transformation, (2) $f$ is injective and (3) $f$ is surjective. 
+          \item $H$ is a vector space over $F$ if for all vector $\mathbf{v}_1, \mathbf{v}_2\in H$, $\mathbf{v}_1+\mathbf{v}_2\in H$, and for all $\alpha\in F$, $\alpha \mathbf{v}_1\in H$.
+          \item $\phi$ is defined as below
+          \begin{align*}
+\phi: H&\to M_n(F)\\
+      f&\mapsto [f]_{B_{St}}
+          \end{align*}
+          We verify the isomorphism of $\phi$ first. \\
+          (1) Linear Transformation: we pick any $f_1, f_2\in H$ and $\alpha_1,\alpha_2\in F$, $\phi(\alpha_1f_1+\alpha_2f_2)=[\alpha_1f_1+\alpha_2f_2]_{B_{St}}=\alpha_1[f_1]_{B_{St}}+\alpha_2[f_2]_{B_{St}}=\alpha_1\phi(f_1)+\alpha_2\phi(f_2)$. Shown.\\
+          (2) Injectivity: suppose $f\in N(\phi)$, i.e., $\phi(f)=[f]_{B_{St}}=0$. This means that $f$ is the zero map, which shows $N(\phi)=\{\mathbf{0}\}$, implying injectivity.\\
+          (3) Surjectivity: For any matrix $A\in M_n(F)$, we can construct linear transformation $T(\mathbf{v})=A\mathbf{v}$. We can easily check this linear transformation $T$ has the representation matrix $A$ under standard basis.\\
+          These three parts combine to show $\phi$ is an isomorphism.\\
+          We then construct $\psi$ to be
+                    \begin{align*}
+\psi: M_n(F)&\to H\\
+      A\mapsto T: \mathbf{v}\to A\mathbf{v} 
+          \end{align*}
+          We check $\psi$ is an isomorphism by verifying $\psi$ is the inverse of $\phi$. In fact, for all arbitrary $A$, we always have $\phi(\psi(A))=A$ and also $\psi\phi(A)=A$. So there are indeed inverse. This implies that $\psi$ is an isomorphism.
+          \item $\dim_F H = \dim M_n(F)=n^2$.
+        \end{enumerate}
+  \item \begin{enumerate}
+    \item $T^\ast: V\to V$ is the adjoint of $T:V\to V$ if $\langle T(\mathbf{u}), \mathbf{v}\rangle=\langle \mathbf{u}, T^\ast(\mathbf{v})\rangle$.  
+    \item $B$ is an orthonormal basis of the inner product space $V$ if $[T^\ast]_B=([T]_B)^\ast$.
+    \item This is not true. 
+    \item We evaluate 
+    \begin{align*}
+  &\langle \mathbf{u}, T^\ast(\mathbf{v})\rangle\\
+  =&\langle T(\mathbf{u}, \mathbf{v})\rangle\\
+  =&\langle A[\mathbf{u}]_B, \mathbf{v}\rangle\\
+  =&(A[\mathbf{u}]_B)^t \overline{[\mathbf{v}]_B}\\
+  =&[\mathbf{u}]_B^tA^t\overline{[\mathbf{v}]_B}
+    \end{align*}
+  \end{enumerate}
+  \item \begin{enumerate}
+    \item The conjugate $\overline{\lambda}$ of complex number $\lambda = a+ bi$ equals $a-bi$.
+    \item A complex matrix $A$ in $M_n(\mathbb{C})$ is unitary if
+    \[
+AA^\ast = I_n
+    \]
+    \item False. $UY=\lambda Y \Rightarrow U^\ast UY=\lambda U^\ast Y\Rightarrow U^\ast Y=\frac{1}{\lambda}Y\neq \overline{\lambda}Y$ in general. 
+    \item True. Consider $\langle Y, U^\ast \overline{Y}\rangle = \langle UY, \overline{Y}\rangle = \lambda\langle Y, \overline{Y}\rangle = \langle Y, \overline{\lambda}\overline{Y}\rangle$, for all $Y$. Then, we arrive at $U^\ast \overline{Y}=\overline{\lambda}\overline{Y}$.
+  \end{enumerate}
+  \item \begin{enumerate}
+  \item Yes. Since $p(A)=0$ for $q(x)=x^3-x=x(x+1)(x-1)$, the minimum polynomial which divides $q$ contains only simple zeroes. Thus, $A$ is diagonalisable.
+  \item So the characteristic polynomial is of the form $q(x)=x^{k_1}(x-1)^{k_2}(x+1)^{k_3}$, where $0\leq k_1,k_2,k_3\leq 3$ and $k_1+k_2+k_3=3$. All possible Jordan canonical forms up to isomorphism are
+  \[
+D[1,1,1], D[1,1,0], D[1,1,-1],D[1,0,0], D[1,-1,0], D[1,-1,-1]
+  \]
+  \[
+ D[0,0,0], D[0,0,-1], D[0,-1,-1],D[-1,-1,-1]
+  \]
+\end{enumerate}
+  \item \begin{enumerate}
+  \item $T$ is a normal operator if $TT^\ast = T^\ast T$.
+  \item Let $T$ be normal. By Schur's theorem, we may write $T=U^\ast DU$ where $U$ is unitary and $D$ is upper triangular. We claim that $D$ is i fact diagonal. To see this, note that since $T^\ast T = TT^\ast$, $D^\ast D = DD^\ast$. Hence, we need to show that an upper triangular normal matrix is diagonal. The key is to compare the diagonal entries of $DD^\ast$ and $D^\ast D$. Let $d_{ii}$ be $i$th diagonal entry of $D$, and let $\mathbf{a}_i$ denote its $i$th row. Now the diagonal entries of $DD^\ast$ are $|\mathbf{a}_1|^2, \ldots, |\mathbf{a}_n|^2$. On the other hand, the diagonal entries of $D^\ast D$ are $|t_{11}|^2,\ldots, |t_{nn}|^2$. It follows that $|\mathbf{a}_i|^2=|t_{ii}|^2$ for each $i$, and consequently $T$ has to be diagonal. Therefore $T$ is unitarily diagonalisable. QED.
+\end{enumerate}
+\end{enumerate}
+\end{document}

@@ -1,0 +1,182 @@
+\PassOptionsToPackage{svgnames}{xcolor}
+\documentclass[12pt]{article}
+
+
+
+\usepackage[margin=1in]{geometry}  
+\usepackage{graphicx}             
+\usepackage{amsmath}              
+\usepackage{amsfonts}              
+\usepackage{framed}               
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{amsthm}
+\usepackage[nottoc]{tocbibind}
+\usepackage{bm}
+\usepackage{enumitem}
+
+
+\DeclareMathOperator{\Tr}{Tr}
+ \newcommand{\im}{\mathrm{i}}
+  \newcommand{\diff}{\mathrm{d}}
+  \newcommand{\col}{\mathrm{Col}}
+  \newcommand{\row}{\mathrm{R}}
+  \newcommand{\kerne}{\mathrm{Ker}}
+  \newcommand{\nul}{\mathrm{Null}}
+  \newcommand{\nullity}{\mathrm{nullity}}
+  \newcommand{\rank}{\mathrm{rank}}
+  \newcommand{\Hom}{\mathrm{Hom}}
+  \newcommand{\id}{\mathrm{id}}
+  \newcommand{\ima}{\mathrm{Im}}
+  \newcommand{\lcm}{\mathrm{lcm}}
+  \newcommand{\diag}{\mathrm{diag}}
+  \newcommand{\inv}{^{-1}}
+  \newcommand{\str}{^\ast}
+  \newcommand\norm[1]{\left\lVert#1\right\rVert}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0em}
+\newcommand{\Lim}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \lim_{#1}\;$}}}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{notation}{Notation}[section]
+\theoremstyle{definition}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\spn}{Span}
+\setcounter{tocdepth}{1}
+\begin{document}
+
+\title{PYP Answer - MA1104 AY1617Sem2}
+\author{Ma Hongqiang}
+\maketitle
+\begin{enumerate}
+  \item \begin{enumerate} %Q1
+  \item Let $F(x,y,z):=xz+2x^2y+y^2z^3$. One normal vector of the tangent plane is the gradient vector $\nabla F(2,1,1)$.\\
+  Since $\nabla F = \langle z+4xy, 2x^2+2z^3y, x+3y^2z^2\rangle$, $\mathbf{n} := \nabla F(2,1,1)= \langle 9,10,5\rangle$.\\
+  Then the equation of the plane is
+  \[
+9x+10y+5z=9\times 2 + 10\times 1+5\times 1 = 33
+  \]
+  \item The tangent line is not only perpendicular to $\mathbf{n}$, but also perpendicular to $\langle 1, 1, 1\rangle$. Therefore, one directional vector for the tangent line is $\mathbf{d}:=\langle 9,10, 5\rangle \times \langle 1,1,1\rangle = \langle 5, -4 , -1\rangle$. It has length $\sqrt{5^2+(-4)^2+(-1)^2}=\sqrt{42}$.\\
+  Then the required unit vector can be $\frac{\langle 5, -4 , -1\rangle}{\sqrt{42}}$ or $-\frac{\langle 5, -4 , -1\rangle}{\sqrt{42}}$.
+  \item The parametric equation of the tangent line is $\mathbf{r}=\langle 5,-4, -1\rangle\lambda+\langle 2,1,1\rangle$. By letting $z=0$, we have $0=-\lambda+1\Rightarrow \lambda = 1$. \\Therefore, the intersection is $(7,-3,0)$. 
+  \end{enumerate}
+  \item \begin{enumerate}%Q2
+  \item By chain rule,
+  \begin{align*} \frac{\partial z}{\partial u}&=\frac{\partial z}{\partial x}\frac{\partial x}{\partial u}+\frac{\partial z}{\partial y}\frac{\partial y}{\partial u}\\
+  &=(2x+y^3)v^2+3xy^2\\
+  &=58
+  \end{align*}
+  Similarly, we have $\frac{\partial  z}{\partial v}=151$ and $\frac{\partial z}{\partial w}=27$.
+  \item \begin{enumerate}
+    \item We note that $z=\sqrt{4-x^2-y^2}:=g(x,y)$, with $\frac{\partial g}{\partial x}=-(1-x^2-y^2)^{-\frac{1}{2}}x$ and$ \frac{\partial g}{\partial y}=-(1-x^2-y^2)^{-\frac{1}{2}}y$\\
+    By surface area formula,
+    \begin{align*}
+    \text{Area}(S)&=\int_S1\diff S\\
+    &=\iint_D 1\sqrt{\left(\frac{\partial g}{\partial x}\right)^2+\left(\frac{\partial g}{\partial y}\right)^2+1}\diff A\\
+    &=\iint_D \sqrt{\frac{1}{4-x^2-y^2}}\diff A\text{ where }D = \{(x,y): x^2+y^2<3\}\\
+    &=\int_0^{2\pi}\int_0^{\sqrt{3}}(4-r^2)^{-\frac{1}{2}}\cdot r\diff r\diff \theta\\
+    &=2\pi\times\left[-(4-r^2)^{\frac{1}{2}}\right]_0^{\sqrt{3}}\\
+    &=2\pi
+    \end{align*}
+    \item 
+  \end{enumerate}
+  \end{enumerate}
+  \item \begin{enumerate} %Q3
+  \item Note the extreme value must occur at the boundary of $D$: $g(x,y,z):=x^2+y^2+2z^2=6$. Employ Lagrange multiplier, $\nabla f = \langle 3y, 3x, 6\rangle$ and $\nabla g = \lambda\langle 2x, 2y, 4z\rangle$, we arrive at
+  \[
+\begin{cases}
+3y&=2\lambda x\\
+3x&=2\lambda y\\
+6&=4\lambda z
+\end{cases}
+  \]
+  The first two equation gives $9xy=4\lambda^2xy$. Suppose $xy=0$, then since $\lambda\neq 0$, both $x$ and $y$ are $0$, which does not produce points on the boundary of $D$. As a result, we have $9=4\lambda^2\Rightarrow \lambda = \pm \frac{3}{2}$.\\
+  There are four solutions.\\
+  $P_1=(\sqrt{2},\sqrt{2},1)$; $f(P_1)=12$. $P_2=(-\sqrt{2},-\sqrt{2},1)$ with $f(P_2)=12$. These two points produce the maximum value of $12$.\\
+  $P_3=(\sqrt{2},-\sqrt{2},-1)$ with $f(P_3)=-12$ and $P_4=(-\sqrt{2},\sqrt{2},-1)$ with $f(P_4)=-12$. These two points produce the minimum value of $-12$.
+  \item $\norm{\nabla f}=3\sqrt{x^2+y^2+4}$. It achieves its maximum value when
+  \[
+\begin{cases}
+\frac{\partial \norm{\nabla f}}{\partial x} &= 0\\
+\frac{\partial \norm{\nabla f}}{\partial y} &= 0\\
+\frac{\partial \norm{\nabla f}}{\partial z} &= 0\\
+\end{cases}\Rightarrow
+\begin{cases}
+3(x^2+y^2+4)^{-\frac{1}{2}}x&=0\\
+3(x^2+y^2+4)^{-\frac{1}{2}}y&=0\\
+0&=0
+\end{cases}
+  \]
+  So the set of points are $\{(x,y,z): x=0\text{ and }y=0\text{ and }-\sqrt{3}\leq z\leq \sqrt{3}\}$.
+  \end{enumerate}
+  \item \begin{enumerate} %Q4
+    \item By a change of order of integration, the original integral equals
+    \begin{align*}
+    &\int_0^1\int_0^{\sqrt{y}} 2x\sin(y^2)       \diff x\diff y\\
+    =&\int_0^1 [x^2\sin(y^2)]_0^{\sqrt{y}}\diff y\\
+    =&\int_0^1 y\sin(y^2)\diff y\\
+    =&[-\frac{1}{2}\cos(y^2)]_0^1\\
+    =&\frac{1}{2}-\frac{1}{2}\cos 1
+    \end{align*}
+    \item 
+    \item The iterated integral equals to 
+    \[
+\int_0^3 \int_{3-y}^3 \int_0^{\sqrt{9-x^2}} f(x,y,z)\diff z \diff x \diff y
+    \]
+  \end{enumerate}
+  \item \begin{enumerate}
+  \item \begin{align*}
+  \text{Area}(D)&=\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\int_0^{1+\cos\theta} 1\diff r\diff \theta-\frac{1}{2}\pi\times 1^2\\
+  &=\frac{1}{2}\pi+2
+  \end{align*}
+    \item By curl formula, \[
+    \text{curl}(\mathbf{F})=\langle -2z,-3x^2,-5\rangle
+    \]
+    \item We note that $C$ is a closed, clockwise-oriented curve on the surface $2xy-z=0$. So we can take the downward pointing normal 
+    \[
+\mathbf{n}=\frac{\langle 2y, 2x, -1\rangle}{\sqrt{1+4x^2+4y^2}}
+    \]
+    Employ Stokes' Theorem, the line integral equals to
+    \begin{align*}
+&\iint_{x^2+y^2\leq 1}\text{curl}(\mathbf{F})\cdot\mathbf{n}\diff S\\
+&=\iint_{x^2+y^2\leq 1}\underbrace{\langle -2z,-3x^2,-5\rangle}_{\text{curl}(\mathbf{F})} \cdot \underbrace{\frac{\langle 2y,2x,-1\rangle}{\sqrt{1+4x^2+4y^2}}}_{\mathbf{n}}\cdot \underbrace{\sqrt{1+4x^2+4y^2}\diff x\diff y}_{\diff S}\\
+&=\iint_{x^2+y^2\leq 1}(-8xy^2-6x^3+5)\diff x\diff y\\
+&=5\pi
+    \end{align*}
+  \end{enumerate}
+  \item \begin{enumerate}
+  \item \begin{enumerate}
+    \item $\frac{\diff }{\diff x}(xy+e^x+x\cos y)=y+e^x+\cos y\neq \frac{\diff}{\diff y}(y+ye^x+\sin y)=1+e^x+\cos y$. Therefore, $\mathbf{G}$ is not conservative.
+    \item \begin{align*}
+    \int_C\mathbf{G}\cdot\diff\mathbf{r}&=\int_C\langle \frac{1}{2}y^2+ye^x+\sin y,xy+e^x+x\cos y\rangle\cdot \diff\mathbf{r}+\int_C\langle y-\frac{1}{2}y^2, 0\rangle \cdot\diff\mathbf{r}\\
+    &=[\frac{1}{2}xy^2+ye^x+x\sin y]^{(x,y)=(\frac{\pi}{2}, 0)}_{(x,y)=(0,1)}+\int_0^\frac{\pi}{2}\langle -\frac{1}{2}\cos^2 t, 0 \rangle\cdot \langle 1, -\sin t\rangle \diff t\\
+    &=-1-\frac{1}{2}\int_0^\frac{\pi}{2}\cos^2(t)\diff t\\
+    &=-1-\frac{\pi}{8}
+    \end{align*}
+  \end{enumerate}
+  \item \begin{enumerate}
+  \item $S_1$ has the following parametrisation $\mathbf{r}(u,v)=\langle u\cos v, u\sin v, 7\rangle$, where $u\in[0,1]$ and $v\in[0, 2\pi]$. As a result, $\mathbf{r}_u\times\mathbf{r}_v=\langle 0,0,u\rangle$. Therefore,
+  \begin{align*}
+  \iint_{S_1}\mathbf{F}\cdot\diff\mathbf{S}&=\int_0^1\int_0^{2\pi} -2\times 7(u\cos v+u\sin v-1)u\diff v\diff u\\
+  &=14\pi
+  \end{align*}
+  \item We note that $\text{div}\mathbf{F}=2$. Therefore,
+  \begin{align*}
+  \iiint_E\text{div}\mathbf{F}\diff V &= \iiint_E 2\diff V\\
+  &=2\iint_D(7+x^2+y^2)\diff A\text{ where }D\text{ is the circle of radius 1 centered at origin}\\
+  &=2\int_0^1\int_0^{2\pi}7+r^2\diff\theta\diff r\\
+  &=\frac{88}{3}\pi
+  \end{align*}
+  \item We parametrise the surface $S_3$ parallel to the $z$ axis as following: $\mathbf{r}(u,v)=\langle \cos u, \sin u, v\rangle$ where $u\in[0,2\pi]$ and $v\in[-1,7]$. As a result, an outward pointing normal is $\mathbf{r}_u\times\mathbf{r}_v = \langle \cos u, \sin u, 0\rangle$. Then we evaluate
+  \[
+\iint_{S_3}\mathbf{F}\cdot\diff\mathbf{S}=\iint_D\langle 0,0,-2v(\cos u+\sin u-1)\rangle \cdot \langle \cos u, \sin u, 0\rangle\diff A = 0
+  \]
+  Then, by divergence theorem, we have $\iint_{S_2}\mathbf{F}\cdot\diff\mathbf{S}=\frac{88}{3}\pi-14\pi-0 = \frac{46}{3}\pi$.
+
+\end{enumerate}
+  \end{enumerate}
+\end{enumerate}
+
+\end{document}

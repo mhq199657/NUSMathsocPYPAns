@@ -1,0 +1,148 @@
+\PassOptionsToPackage{svgnames}{xcolor}
+\documentclass[12pt]{article}
+
+
+
+\usepackage[margin=1in]{geometry}  
+\usepackage{graphicx}             
+\usepackage{amsmath}              
+\usepackage{amsfonts}              
+\usepackage{framed}               
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{amsthm}
+\usepackage[nottoc]{tocbibind}
+\usepackage{bm}
+\usepackage{enumitem}
+
+\DeclareMathOperator{\Tr}{Tr}
+ \newcommand{\im}{\mathrm{i}}
+  \newcommand{\diff}{\mathrm{d}}
+  \newcommand{\col}{\mathrm{Col}}
+  \newcommand{\row}{\mathrm{R}}
+  \newcommand{\kerne}{\mathrm{Ker}}
+  \newcommand{\nul}{\mathrm{Null}}
+  \newcommand{\nullity}{\mathrm{nullity }}
+  \newcommand{\rank}{\mathrm{rank }}
+  \newcommand{\Hom}{\mathrm{Hom}}
+  \newcommand{\id}{\mathrm{id}}
+  \newcommand{\ima}{\mathrm{Im}}
+  \newcommand{\lcm}{\mathrm{lcm}}
+  \newcommand{\inv}{^{-1}}
+  \newcommand{\str}{^\ast}
+  \newcommand\norm[1]{\left\lVert#1\right\rVert}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0em}
+\newcommand{\Lim}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \lim_{#1}\;$}}}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{notation}{Notation}[section]
+\theoremstyle{definition}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\spn}{Span}
+\setcounter{tocdepth}{1}
+\begin{document}
+
+\title{PYP Answer - MA2101 AY1516Sem1}
+\author{Ma Hongqiang}
+\maketitle
+\begin{enumerate}
+\item The characteristic polynomial of $A$ is
+\[
+p(x)=|xI-A| = \det\begin{pmatrix}x&-2\\-2&x-3\end{pmatrix} = (x-4)(x+1)
+\]
+So the eigenvalues of $A$ are $4$ or $-1$. Solving $(xI-A)v=0$ for eigenvalues $x=4,-1$ respectively, we have $v=\begin{pmatrix}1\\2\end{pmatrix}$ associated with $x=4$ and $v=\begin{pmatrix}-2\\1\end{pmatrix}$ associated with $x=-1$. So
+\[
+D=\begin{pmatrix}4&\\&-1\end{pmatrix}
+\]
+and
+\[
+P=\begin{pmatrix}1&-2\\2&1\end{pmatrix}
+\]
+\item Let $\begin{pmatrix}y_1\\y_2\end{pmatrix} = Y=PZ=\begin{pmatrix}1&1\\1&\end{pmatrix}\begin{pmatrix} z_1\\z_2\end{pmatrix}$. So $Y^\prime = PZ^\prime$ and we note that
+\[
+\begin{cases}
+y_1 = z_1+z_2\\
+y_2 = z_1
+\end{cases}
+\]
+and $PZ^\prime = APZ$, which implies $Z^\prime = P^{-1}APZ = \begin{pmatrix}2&1\\&2\end{pmatrix}Z$.\\
+Therefore,
+\[
+\begin{cases}
+z_1^\prime = 2z_1+z_2 &(1)\\
+z_2^\prime = 2z_2&(2)
+\end{cases}
+\]
+Solving (2),
+\[
+z_2 = Ae^{2x}
+\]
+and solving (1) using hint, 
+\[
+z_1 = Axe^{2x}+Be^{-2x}
+\]
+Substituting back, we have
+\[
+\begin{cases}
+y_1 = Axe^{2x}+Ae^{2x}+Be^{-2x}\\
+y_2 = Axe^{2x}+Be^{-2x}
+\end{cases}
+\]
+\item \begin{enumerate}
+\item We show that $T^{-1}(W)$ respects additiona and scalar multiplication. \\For $u_1,u_2\in T^{-1}(W)$ and $c\in F$, we have $T(u_1),T(u_2)\in W$, and $T(u_1+u_2)\in W$, so $u_1+u_2\in T^{-1}(W)$. Also, $cT(u_1)\in W$ and $T(cu_1)\in W$, so $cu_1\in T^{-1}(W)$, by definition of $T^{-1}(W)$.
+\item $\dim U = \rank T + \nullity T = \dim V + \nullity T$, by the rank nullity theorem and surjectivity of $T$.\\Now consider $T\mid_{T^{-1}W}:T^{-1}(W)\to W$. This is again surjective, and together with the rank nullity theorem we have
+\[
+\dim T^{-1}(W) = \rank T\mid_{T^{-1}(W)}+\nullity T\mid_{T^{-1}(W)} = \dim W +\nullity T\mid_{T^{-1}(W)}
+\]
+Combining these we get,
+\[
+\dim U + \dim W = \dim V + \dim T^{-1}(W) +\nullity T - \nullity T\mid_{T^{-1}(W)}
+\]
+However, we know that $\nullity T = \nullity T\mid_{T^{-1}(W)}$ because $0\in W$. Hence, we prove the result. 
+\end{enumerate}
+\item\begin{enumerate}
+\item Suppose $Qv = \lambda v$, then
+\[\langle Qv,Qv\rangle = \langle \lambda v, \lambda v =\lambda\overline{\lambda}\langle v,v\rangle
+\]
+Since $Q$ is orthogonal, we have
+\[
+\langle Qv,Qv\rangle = \langle QQ^t v,v\rangle = \langle v,v\rangle
+\]
+Hence, $\lambda\overline{\lambda}=1$ for all eigenvalue $\lambda$. And since the determinant of a real matrix must have real coefficients, by Fundamental Theorem of Algebra, it consists of at least 1 real root, and for that real root, we have $\lambda^2 = 1$.
+\item False, consider $\begin{pmatrix}1&&\\&\cos\theta &-\sin\theta\\&\sin\theta&\cos\theta\end{pmatrix}$, which has 1 real and 2 complex eigenvalue, so $\lambda^2 \neq 1$ for those two imaginery eigenvalues.
+\end{enumerate}
+\item \begin{enumerate}
+\item Suppose $v_1,v_2\in W^\perp$ and $c\in \mathbb{R}$. We shall show that $W^\perp$ respects addition and scalar multiplication.
+\begin{itemize}
+  \item[Addition] Since $v_1,v_2\in W^\perp$, $\langle v_i,w\rangle = 0$ for $i = 1,2$. So $\langle v_1+v_2,w\rangle = 0$, and therefore, $v_1+v_2\in W^\perp$.
+  \item[Scalar Multiplication] We note that $c\langle v_1,w\rangle = 0$ gives $\langle cv_1,w\rangle = 0$, so $cv_1\in W^\perp$.
+\end{itemize}
+\item Yes. For any $v\in W^\perp$,i.e., $\langle v,w\rangle = 0$, we want to show that $T(v)\in W^\perp$, i.e., $\langle T(v),w\rangle = 0$.\\
+Note $\langle T(v),w\rangle = \langle v, T^\ast(w)\rangle = \langle v, w^\prime \rangle$ for all $w\in W$ since $W$ is $T^\ast$ invariant. And since $v\in W^\perp$, $\langle T(v),w\rangle = 0$ for all $w\in W$, and this proves the claim.
+\item Let $V$ be $2\times 1$ real matrix, and inner product be the dot product. Let $T(v) = \begin{pmatrix}1&3\\&2\end{pmatrix}$ and thus $T^\ast = \begin{pmatrix}1&\\3&2\end{pmatrix}$. $W = \spn\{\begin{pmatrix}1\\-3\end{pmatrix}\}$ and $W^\perp = \spn\{\begin{pmatrix}3\\1\end{pmatrix}\}$. However, $T^\ast\begin{pmatrix}3\\1\end{pmatrix} =\begin{pmatrix}3\\11\end{pmatrix}\not\in W^\perp$. Hence, the claim is false. 
+\end{enumerate}
+\item Basically $f(x)$ kills $A$. Also, as $A$ is self adjoint, $A$ is diagonalisable, so the minimum polynomial has at most degree 1 for each factor. Therefore, possible $m_A(x)$ are
+\begin{align*}
+m_A(x)&=x-1\\
+m_A(x)&=x-2\\
+m_A(x)&=x-3\\
+m_A(x)&=(x-1)(x-2)\\
+m_A(x)&=(x-1)(x-3)\\
+m_A(x)&=(x-2)(x-3)\\
+m_A(x)&=(x-1)(x-2)(x-3)
+\end{align*}
+\item\begin{enumerate}
+\item For any $k_m\in K_m, T^m(k_m)=0$, therefore, $T^{m+1}(k_m)=T(0)=0$. So $k_m\in K_{m+1}$ and therefore $K_m\subseteq K_{m+1}$.
+\item $\dim K_r$ admits a non-decreasing sequence as $r$ increases. And we require, $\dim K_r\leq \dim K_{r+1}\leq \dim K_{r+2}\leq \cdots\leq \dim V$.Therefore, there is at most $\dim V$ strict inequality. Therefore, after some $r\geq 1$, $K_r = K_{r+s}$ for all $s\geq 1$.
+\item No.  Let $V$ be the vector space of infinite sequence of real numbers $(x_0,x_1,x_2\ldots)$, under componentwise addition and scalar multiplication. The linear transformation is the right shift operator $T: (x_0,x_1,x_2,\ldots)\mapsto (0,x_0,x_1,\ldots)$. \\Consider $v = T^s(1,0,0,0,\ldots)\in K_{s}$ but not in $K_{s+1}$, as the $s+1$th coordinate in $v$ is 1 but that in $K_{s+1}$ can only be $0$. Therefore, $K_s\neq K_{s+1}$ for all $s\geq 1$.
+\end{enumerate}
+\item \begin{enumerate}
+\item No. $A$ is not necessarily self-adjoint. Let $A = \begin{pmatrix} 1&0.5\\0.3&1\end{pmatrix}$.
+\item[bi] By Principal Axis Theorem, we can take orthonormal basis $B$ such that $[A]_B$ is diagonal: $\text{diag}(\lambda_1,\ldots, \lambda_n)$. Therefore, we can choose $[G]_B = \text{diag}(\lambda_i^\frac{1}{4},\ldots, \lambda_n^\frac{1}{4})$. 
+\item[bii] By Principal Axis Theorem, $A = PDP^\ast Q^\ast DQ$ where $D$ is diagonal. Write $D = M^2$, where $M_{ii}=D_{ii}^\frac{1}{2}$ for $i = 1,\ldots,n$ with 0 on other entries. Then $A = Q^\ast MMQ = Q^\ast M\ast MQ = (MQ)^\ast MQ = H^\ast H$.
+\end{enumerate}
+\end{enumerate}
+\end{document}

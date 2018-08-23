@@ -1,0 +1,313 @@
+\PassOptionsToPackage{svgnames}{xcolor}
+\documentclass[12pt]{article}
+
+
+
+\usepackage[margin=1in]{geometry}  
+\usepackage{graphicx}             
+\usepackage{amsmath}              
+\usepackage{amsfonts}              
+\usepackage{framed}               
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{amsthm}
+\usepackage[nottoc]{tocbibind}
+\usepackage{bm}
+\usepackage{enumitem}
+
+
+\DeclareMathOperator{\Tr}{Tr}
+ \newcommand{\im}{\mathrm{i}}
+  \newcommand{\diff}{\mathrm{d}}
+  \newcommand{\col}{\mathrm{Col}}
+  \newcommand{\row}{\mathrm{R}}
+  \newcommand{\kerne}{\mathrm{Ker}}
+  \newcommand{\nul}{\mathrm{Null}}
+  \newcommand{\nullity}{\mathrm{nullity}}
+  \newcommand{\rank}{\mathrm{rank}}
+  \newcommand{\Hom}{\mathrm{Hom}}
+  \newcommand{\id}{\mathrm{id}}
+  \newcommand{\ima}{\mathrm{Im}}
+  \newcommand{\lcm}{\mathrm{lcm}}
+  \newcommand{\diag}{\mathrm{diag}}
+  \newcommand{\inv}{^{-1}}
+  \newcommand{\str}{^\ast}
+  \newcommand\norm[1]{\left\lVert#1\right\rVert}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0em}
+\newcommand{\Lim}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \lim_{#1}\;$}}}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{notation}{Notation}[section]
+\theoremstyle{definition}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\spn}{Span}
+\setcounter{tocdepth}{1}
+\begin{document}
+
+\title{PYP Answer - MA2101 AY1617Sem2}
+\author{Ma Hongqiang}
+\maketitle
+\begin{enumerate}
+  \item Let $\begin{pmatrix}z_1\\z_2\end{pmatrix}=Z:=P^{-1}Y$. We have $Y=PZ$ and $Y^\prime = PZ^\prime$.
+  \begin{align*}
+  Y^\prime = AY\Rightarrow PZ^\prime &= APZ\\
+  Z^\prime &=P\inv APZ=\begin{pmatrix}1&0\\1&-1\end{pmatrix}Z\\
+  \end{align*}
+  Therefore, 
+  \[
+  \begin{cases}
+  z_1^\prime = z_1&\;\;\;\;\;(1)\\
+  z_2^\prime = z_1-z_2&\;\;\;\;\;(2)
+  \end{cases}
+  \]
+  Solving $(1)$, we have
+  \[
+z_1=Ae^x, \text{where }A \text{ is an aribitrary constant}
+  \]
+Substituting $z_1$ to $(2)$, we have
+\[
+z^\prime_2+z_2=Ae^x
+\]
+Solving $z_2$ using hint, we have
+\[
+z_2=Be^{-x}+\frac{A}{2}e^x, \text{where }B\text{ is an arbitrary constnant}
+\]
+Therefore, 
+\[
+Y=\begin{pmatrix}\frac{A}{2}e^x+Be^{-x}\\\frac{3A}{2}e^x+Be^{-x}\end{pmatrix}
+\]
+\item \begin{enumerate}
+\item Note, that $(AA\str)\str=A^{\ast\ast}A\str = AA\str$, so $AA\str$ is self-adjoint. \\By Principle Axis Theorem, there exists a unitary matrix $U$, such that
+\[
+D=U\str(AA\str)U
+\] 
+\item Note the $i$th column ($i=1,2$) of $U$ consists of eigenvectors of $AA\str=\begin{pmatrix}0&1\\1&0\end{pmatrix}$ and the corresponding $i$th column of $D$ consists of the eigenvalues at the diagonal. Therefore, solving
+\[
+p(x)=|xI-AA\str|=x^2-1=0\Rightarrow x=\pm 1
+\]
+We have two distinct eigenvalues $1, -1$ and $D=\begin{pmatrix}1&0\\0&-1\end{pmatrix}$.\\Solving
+\[
+\begin{pmatrix}\lambda&-1\\-1&\lambda\end{pmatrix}v=0
+\]
+where $\lambda = 1,-1$, we have the two eigenvectors $e_{\lambda = 1}=\begin{pmatrix}1\\1\end{pmatrix}$ and $e_{\lambda=-1}=\begin{pmatrix}1\\-1\end{pmatrix}$.\\Therefore, $U^\prime=\begin{pmatrix}1&1\\1&-1\end{pmatrix}$.After normalisation.
+\[
+U=\begin{pmatrix}\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\end{pmatrix}
+\]
+\end{enumerate}
+\item 
+\begin{enumerate}
+\item In any matrix, column and row spaces have the same dimension
+\[
+\dim_ F\col(A)=\dim_ F\row(A):=\rank(A)
+\]
+which is called the \textbf{rank} of $A$.
+\item ($\Leftarrow$) We first note that for any column $j$, $\mathbf{b}_j = E_r\cdots E_1 \mathbf{a}_j$.
+\begin{alignat*}{3}
+&&\sum_{j=1}^n c_j\mathbf{a}_j &= 0\\
+\Rightarrow&& E_r\cdots E_1\sum_{j=1}^n c_j\mathbf{a}_j&=E_r\cdots E_1 \\
+\Rightarrow&& \sum_{j=1}^n c_j E_r\cdots E_1 \mathbf{a}_j &= 0\\
+\Rightarrow&& \sum_{j=1}^n c_j\mathbf{b}_j &= 0
+\end{alignat*}
+($\Rightarrow$) We note that all elementary matrices are invertible. So,
+\begin{alignat*}{3}
+&&\sum_{i=1}^n c_j \mathbf{b}_j&=0\\
+\Rightarrow&&\sum_{j=1}^n c_j E_r\cdots E_1 \mathbf{a}_j &= 0\\
+\Rightarrow&&E_r\cdots E_i\sum_{j=1}^n c_j\mathbf{a}_j&=0\\
+\Rightarrow&&\sum_{j=1}^n c_j\mathbf{a}_j&=E_1\inv\cdots E_n\inv 0=0
+\end{alignat*}
+\item $\rank(B)\leq \rank(A)$ is clear. For $\rank(B)\geq \rank(A)$, suppose that $\rank(A)=k$. Then by definition of rank, there exists some columns $i\in I$ from $A$ ($|I|=k$), where $\sum_{i\in I}c_i\mathbf{a}_i=0$ has only trivial solution.\\
+According to (b), $B$ will also have the corresponding property: the corresponding columns $i\in I$ of $B$ ($|I|=k$), admit that $\sum_{i\in I}c_i\mathbf{b}_i=0$ has only trivial solution.\\
+Hence, $\rank(B)\geq k$. Therefore, $\rank(B)=\rank(A)$.
+\end{enumerate}
+\item \begin{enumerate}
+\item $V_1$ is a vector subspace of $V$ if:
+\begin{itemize}
+\item[(CA)] (\textbf{C}losed under vector \textbf{A}ddition) 
+\[
+ \mathbf{v}_1,\mathbf{v}_2\in V_1\Rightarrow \mathbf{v}_1+\mathbf{v}_2\in V_1
+\]
+\item[(CS)] (\textbf{C}losed under \textbf{S}calar Multiplication)
+\[
+\mathbf{v}\in V_1\Rightarrow a\mathbf{v}\in V_1
+\] 
+\end{itemize}
+\item $T$ is a linear transformation since from $V$ to $V$ if for all $v,v_1,v_2\in V$:
+\begin{align*}
+T(\mathbf{v}_1+\mathbf{v}_2)&=T(\mathbf{v}_1)+T(\mathbf{v}_2)\\
+T(a\mathbf{v})&=aT(\mathbf{v})
+\end{align*}
+\item Let $v_1, v_2$ be two vectors from $R_n$, and $c\in F$. There is $u_1, u_2\in V$ such that $v_i = T^n(u_i), i=1,2$. Note that, as $T$ is a linear transformation, the composition $T^n$ is also a linear transformation, by which we have
+\begin{itemize}
+  \item[(CA)] 
+  \begin{align*}
+  v_1+v_2&=T^n(u_1)+T^n(u_2)\\
+  &=T^n(u_1+u_2)\in R_n
+  \end{align*}
+  \item[(CS)]
+  \begin{align*}
+  cv_1&=cT^n(u_1)\\
+    &=T^n(cu_1)\in R_n
+    \end{align*}
+  \end{itemize}
+  \item For all $v\in R_{m+1}$, $v=T^{n+1}(u)$ for some $u\in V$. Let $w=T(u)\in V$, so $v=T^n(w)$ implies $v\in R_m$. Hence, $R_{m+1}\subseteq R_m$.
+  \item By (d), if $\dim V$ is finite, then 
+  \[
+\dim V \geq \dim R_1\geq \dim R_2\geq \cdots
+  \]
+  is a nonincreasing sequence of nonnegative integers, and hence must be eventually constant, i,e,
+  \[
+\dim R_s = \dim R_{s+1} = \dim R_{s+2} = \cdots   
+\]
+for some $s\geq 1$. Now note that
+\[
+R_s\supseteq R_{s+1}\supseteq R_{s+2}\supseteq \cdots
+\]
+so for all $n\geq 1$, $R_{s+n}$ is a subspace of $R_s$ with the same dimension as $R_s$. Hence $R_{s+n}=R_s$.
+\item No. Let $V$ be the vector space of infinite sequence of real numbers $(x_0,x_1,x_2\ldots)$, under componentwise addition and scalar multiplication. The linear transformation is the right shift operator $T: (x_0,x_1,x_2,\ldots)\mapsto (0,x_0,x_1,\ldots)$. \\Consider $v = T^s(1,0,0,0,\ldots)\in R_s$ is not in $R_{s+1}$, since the $s$th coordinate of $v$ is 1, but the $0$th, $1$st, $\ldots$, $s$th coordinates of any vector in $R_{s+1}$ are 0. Hence, the claim is false.
+\end{enumerate}
+\item 
+\begin{enumerate}
+\item Minimal polynomial of matrix $A$,$m_A(x)$, is the monic polynomial of minimal degree such that $m_A(A) = 0$.\\Characteristic polynomial of matrix $A$, $p_A(x)$, is defined as $p_A(x) = \det(xI_n-A)$.
+
+\item First note that $(A-I)^2(A+I)^2 = 0$. So $(x-1)^2(x+1)^2$ kills $p_A$.
+Since $A$ is diagonalisable over $\mathbb{C}$, $m(x)$ should have only simple zero(s). Therefore, possible $m(x)$ are
+\begin{align*}
+m(x) &= x-1\\
+m(x)&=x+1\\
+m(x)&=(x-1)(x+1)
+\end{align*}
+Examples of $A$ satisfying these three cases are $I_4,-I_4$ and $\diag[1,1,1,-1]$ respectively.
+\item $p_A$ has the same zero set as $m_A$, so possible $p_A(x)$, which must of degree 4 are
+\[
+p(x)=(x-1)^i(x+1)^{4-i}\;\;\;i=0,1,2,3,4
+\]
+The diagonal matrix with $i$ 1's and $4-i$ -1's will satisfy the above $p(x)$.
+\item The determinant of $A$ is non-zero.
+\begin{align*}
+|\det(A)|=&|\textbf{constant term of} p_A(x)|\\
+=&1\;\;\;\text{from (c)}
+\end{align*}
+\item $(A^2-I)^2=0\Rightarrow A^4-2A^2+I=0$.\\Therefore,
+\begin{align*}
+I &= 2A^2-A^4\\
+A\inv &= 2A-A^3
+\end{align*}
+So we can take, $g(x)=2x-x^3$
+\end{enumerate}
+\item \begin{enumerate}
+\item Note that $\langle u_0,u_0\rangle = 0$ implies $u_0 = 0$ by positivity. Similarly, $\langle v_0,v_0\rangle = 0$ implies $v_0 = 0$.
+\item Choose an orthonormal basis $B$ with respect to the inner product. Then $\langle x,y\rangle = [x]_B^\ast [y]_B$ for any $x,y \in V$. Now
+\begin{align*}
+\langle u,T(v)\rangle &=[u]_B^\ast [T]_B[v]_B\\
+&=([T]_B [u]_B)^\ast [v]_B\\
+&=\langle S(u),v\rangle
+\end{align*}
+\item We prove by contradiction. Suppose $\langle u,T(v)\rangle = \langle S(u),v\rangle = \langle S^\prime(u),v\rangle$ where $S\neq S^\prime$. Rearranging, 
+\[
+\langle S(u)-S^\prime(u),v\rangle = 0 \forall v\in V
+\]
+which implies, from (a), that
+\[
+S(u)-S^\prime (u)=0\forall u\in V
+\]
+and that implies $S=S^\prime$, contradiction. Therefore, the claim (c) must be true.
+\end{enumerate}
+\item\begin{enumerate}
+\item   A complex matrix $A$ in $\mathbb{M}_n(\mathbb{C})$ is \textbf{unitary} if
+\[
+AA^\ast = I_n
+\]
+\item \begin{align*}
+\text{LHS} &= AA\str -\alpha A\str -\overline{\alpha}A+II \\
+&=A\str A - \overline{\alpha}A - \alpha A\str +(-\overline{\alpha})(-\alpha)I\\
+&=\text{RHS}
+\end{align*}
+\item We first note that $A$ and $A^\ast$ are both unitary. Therefore.
+\[
+\norm{AX}=\langle AX,AX\rangle = \langle X,X\rangle = \langle A\str X, A\str X\rangle = \norm{A\str X}
+\]
+\item No. Let $A = iI_2, \lambda = i$ and $Y = \begin{pmatrix}1\\2\end{pmatrix}$. Then we have $A^\ast = -iI$, but LHS$=-iY\neq iY=$RHS.
+\item Yes. Observe that $(A-\lambda I)Y = 0$, and therefore $\langle (A-\lambda I)Y, (A-\lambda I)Y \rangle = 0$. So,
+\begin{align*}
+0&=\langle Y,(A\str -\overline{\lambda} I)(A-\lambda I)Y\rangle\\
+&=\langle Y, (A-\lambda I)(A\str \overline{\lambda}I)Y\rangle\\
+&=\langle (A\str -\overline{\lambda}I)Y,(A\str -\overline{\lambda}I)Y\rangle\\
+&=\norm{(A\str -\overline{\lambda}I)Y}^2
+\end{align*}
+So $(A\str- \overline{\lambda}I)Y = 0$, i.e. $A\str Y = \overline{\lambda}Y$. Note that eigenvalues of a complex matrix will either be real, or in conjugate form. So we have the set of eigenvalues of $A$ equals that of $A\str$.
+
+\end{enumerate}
+\item \begin{enumerate}
+\item $A$ is \textbf{positive definite} if $A$ is self-adjoint and
+\[
+(AX)^t\overline{X}=X^tA^t\overline{X}>0
+\]
+for all $X\in\mathbb{C}^n$.
+\item $V$ is an inner product space if it has an inner product, ie. a function $\langle -,-\rangle$ satisfying the following
+\begin{enumerate}
+\item For all
+\[
+\mathbf{x}_i, \mathbf{y}_j, \mathbf{x}, \mathbf{y}\in V, a_i, b_i\in\mathbb{R}
+\]
+we have
+\[
+\begin{aligned}
+\langle a_1\mathbf{x}_1+a_2\mathbf{x}_2,\mathbf{y}\rangle &= a_1\langle \mathbf{x}_1, \mathbf{y}\rangle+a_2\langle \mathbf{x}_2, \mathbf{y}\rangle\\
+\langle \mathbf{x}, b_1\mathbf{y}_1+b_2\mathbf{y}_2\rangle &= \bar{b}_1\langle \mathbf{x}, \mathbf{y}_1\rangle+\bar{b}_2\langle \mathbf{x}, \mathbf{y}_2\rangle
+\end{aligned}
+\]
+\item $H$ is symmetric, i.e., for all $\mathbf{x},\mathbf{y}\in V$, we have
+\[
+\langle \mathbf{x},\mathbf{y}\rangle = \overline{\langle \mathbf{y},\mathbf{x}\rangle}
+\]
+\item Positivity:\\
+For all $\mathbf{0}\neq \mathbf{x}\in V$, we have
+\[
+\langle \mathbf{x},\mathbf{x}\rangle >0
+\]
+\end{enumerate}
+
+\item ($\Rightarrow$) We show that a positive definite $A$ will satisfy the above three condition of inner product.
+\begin{enumerate}
+  \item \begin{align*}
+  \langle a_1X_1+a_2X_2,Y\rangle &=(a_1AX_1+a_2AX_2)^t\overline{Y}\\
+  &=(a_1X_1^t+a_2X_2^t)A^t\overline{Y}\\
+  &=a_1X_1^tA^t\overline{Y}+a_2X_2A^t\overline{Y}\\
+  &=a_1\langle X_1,Y\rangle +a_2\langle X_2,Y\rangle
+  \end{align*}
+  Similarly, \begin{align*}
+  \langle X,b_1Y_1+b_2Y_2\rangle &=X^tA^t\overline{b_1Y_1+b_2Y_2}\\
+  &=X^tA^t\overline{b_1Y_1}+X^tA^t\overline{b_2Y_2}\\
+  &=\overline{b_1}X^tA^t\overline{Y_1}+\overline{b_2}XA^t\overline{Y_2}\\
+  &=\overline{b_1}\langle X,Y_1\rangle +\overline{b_2}\langle X,Y_2\rangle
+  \end{align*}
+  \item \begin{align*}\langle X,Y\rangle&=X^tA^t\overline{Y}\in F\\
+  &=(X^tA^t\overline{Y})^t\\
+  &=\overline{Y}^t\overline{A}^t\overline{\overline{X}}\\
+  &=\overline{Y^tA^t\overline{X}}\\
+  &=\overline{\langle Y, X\rangle}
+  \end{align*}
+  \item \[
+  \langle X,X\rangle=X^tA^t\overline{X}>0
+  \]by positive definiteness of $A$.
+\end{enumerate}
+($\Leftarrow$) Since $\langle - , -\rangle$ is an inner product, we have
+\[
+\langle X,X\rangle = X^tA^t\overline{X}\geq 0
+\]
+for all $X$ in $W$. \\
+Also, consider the symmetric property
+\begin{align*}
+\overline{\langle X,Y\rangle} &= \langle Y,X \rangle\\
+\overline{(AX)^t\overline{Y}}&= (AY)^tX\\
+\overline{X^tA^t\overline{Y}} &=Y^tA^tX=(Y^tA^tX)^t\\
+X\str A\str Y &= X\str AY\text{ for all } X,Y 
+\end{align*}
+which implies $A\str = A$. Thus, $A$ is self adjoint.\\Combining with the result obtained from positivity, we prove the claim.
+\end{enumerate}
+
+\end{enumerate}
+\end{document}

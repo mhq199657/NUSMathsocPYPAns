@@ -84,8 +84,8 @@
                 Then for all $x$ such that $0<|x-2|<\delta$
                 \begin{align*}
                   \left|\frac{x}{x^2+2}-\frac{1}{3}\right| &= \left|\frac{3x-(x^2+2)}{3(x^2+2)}\right|=\left|\frac{(x-1)(x-2)}{3(x^2+2)}\right| \\
-                    &< |x+1|\left|\frac{1}{3(x^2+2)}\right|\epsilon \\
-                    &< 2\times\frac{1}{3\times 2}\times\epsilon \\
+                    &< |x-1|\left|\frac{1}{3(x^2+2)}\right|\epsilon && \text{since }|x-2|<\epsilon\\
+                    &< 2\times\frac{1}{3\times 2}\times\epsilon && \text{since }|x-1|<2\text{ and }\frac{1}{x^2+2}<\frac{1}{2}\\
                     &< \epsilon
                 \end{align*}
           \item \begin{align*}

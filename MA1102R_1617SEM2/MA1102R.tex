@@ -101,13 +101,13 @@ f''(x)=\begin{cases}
     \item Employ the cylindrical shell method, $V=\int_0^{e^2}2\pi xy\diff x = \int_0^1 2\pi x(4)\diff x + \int_1^{e^2} 2\pi (2-\ln x)^2\diff x = 4\pi + 2\pi I_2 = 4\pi e^2-16\pi$.
   \end{enumerate}
   \item\begin{enumerate}
-    \item Let $\epsilon>0$. Choose $\delta = \frac{\epsilon}{|\frac{1}{\sqrt{a}-\frac{1}{8}\sqrt{a}}|}$. Then $|x-a|<\delta \Rightarrow$
+    \item Let $\epsilon>0$. Choose $\delta = \epsilon\sqrt{a}$. Then $|x-a|<\delta \Rightarrow$
     \begin{align*}
     |\sin\sqrt{x}-\sin\sqrt{a}|&=|2\sin\frac{\sqrt{x}-\sqrt{a}}{2}\cos\frac{\sqrt{x}+\sqrt{a}}{2}|\\
-    &\leq |\sqrt{x}-\sqrt{a})(1-\frac{1}{8}(\sqrt{x}+\sqrt{a})^2|\\
-    &=\delta|\frac{1}{\sqrt{x}+\sqrt{a}}-\frac{1}{8}(\sqrt{x}+\sqrt{a})|\\
-    &\leq \delta |\frac{1}{\sqrt{a}-\frac{1}{8}\sqrt{a}}|\;\;\text{ due to monotone increasing}\\
-    \leq \epsilon
+    &\leq |(\sqrt{x}-\sqrt{a})||(1)|\\
+    &\leq\delta|\frac{1}{\sqrt{x}+\sqrt{a}}|\\
+    &\leq \delta |\frac{1}{\sqrt{a}}|\\
+    &\leq \epsilon
     \end{align*}
     \item By Mean Value Theorem, we have, there exists $c\in[0,1102]$, such that $g'(c)=0$. Therefore, $\frac{1}{2}(f(c))^{-\frac{1}{2}}f'(c)f(1102-c)-f(c)^\frac{1}{2}f'(1102-c)=0$. The result follows from rearraging of the previous equation.
     \item\begin{enumerate}
@@ -138,11 +138,11 @@ f''(x)=\begin{cases}
     Therefore, the required limit is $e^\frac{14}{3}$.
     \item Let $c=\frac{1}{t}\int_0^t f(x)\diff x$. Then,
     \begin{align*}
-    \int_0^t \left(f(x) -c\right)^2 \diff x &= \int_0^t f(x)^2\diff x + c^2dx -2cf(x)\diff x \\
+    \int_0^t \left(f(x) -c\right)^2 \diff x &= \int_0^t f(x)^2\diff x + \int_0^t c^2\diff x -\int_0^t 2cf(x)\diff x \\
     &= \int_0^t f(x)^2\diff x + tc^2 - 2c\int_0^t f(x)\diff x\\
     &= \int_0^t f(x)^2\diff x + tc^2 -2tc^2  \\ 
     &= \int_0^t f(x)^2\diff x - tc^2\\
-    &=\ int_0^t f(x)^2\diff x -\frac{1}{t}(\int_0^tf(x)\diff x)^2\geq 0
+    &= \int_0^t f(x)^2\diff x -\frac{1}{t}(\int_0^tf(x)\diff x)^2\geq 0
     \end{align*}
     The result follows the last inequality.\\
     We then take $f(x)=\frac{1}{1+x}$. Then subsituting it into the inequality shown, we have $\frac{t}{1+t}\geq t(\ln(1+t))^2$. We then take the square root to get the result.

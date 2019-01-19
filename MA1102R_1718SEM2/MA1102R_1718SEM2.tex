@@ -1,0 +1,266 @@
+\PassOptionsToPackage{svgnames}{xcolor}
+\documentclass[12pt]{article}
+
+
+
+\usepackage[margin=1in]{geometry}  
+\usepackage{graphicx}             
+\usepackage{amsmath}              
+\usepackage{amsfonts}              
+\usepackage{framed}   
+\usepackage{mathtools}            
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{amsthm}
+\usepackage[nottoc]{tocbibind}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{ulem}
+
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\Tr}{Tr}
+ \newcommand{\im}{\mathrm{i}}
+  \newcommand{\diff}{\mathrm{d}}
+  \newcommand{\col}{\mathrm{Col}}
+  \newcommand{\row}{\mathrm{R}}
+  \newcommand{\kerne}{\mathrm{Ker}}
+  \newcommand{\nul}{\mathrm{Null}}
+  \newcommand{\nullity}{\mathrm{nullity}}
+  \newcommand{\rank}{\mathrm{rank}}
+  \newcommand{\Hom}{\mathrm{Hom}}
+  \newcommand{\id}{\mathrm{id}}
+  \newcommand{\ima}{\mathrm{Im}}
+  \newcommand{\lcm}{\mathrm{lcm}}
+  \newcommand{\diag}{\mathrm{diag}}
+  \newcommand{\inv}{^{-1}}
+  \newcommand{\str}{^\ast}
+  \newcommand\norm[1]{\left\lVert#1\right\rVert}
+  \renewcommand{\labelenumii}{\roman{enumii}}
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{0em}
+\newcommand{\Lim}[1]{\raisebox{0.5ex}{\scalebox{0.8}{$\displaystyle \lim_{#1}\;$}}}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{notation}{Notation}[section]
+\theoremstyle{definition}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\spn}{Span}
+\setcounter{tocdepth}{1}
+\begin{document}
+
+\title{MA1102R AY1718 Sem 2 Answers}
+\author{Lim Li}
+\maketitle
+\begin{enumerate}
+  \item\begin{enumerate}
+          \item
+                \begin{align*}
+                       & \ln{\frac{e^x+1}{e^x-1}} \text{ exists}                                                     \\
+                  \iff & \frac{e^x+1}{e^x-1}>0                                                                       \\
+                  \iff & e^x-1>0                                                                                     \\
+                  \iff & x>0                                                                                         \\\\
+                       & \sin^{-1}\frac{1}{\ln{\frac{e^x+1}{e^x-1}}} \text{ exists}                                  \\
+                  \iff & -1<\frac{1}{\ln{\frac{e^x+1}{e^x-1}}}<1 \\
+                  \iff & 0<\frac{1}{\ln{\frac{e^x+1}{e^x-1}}}<1,\text{ since }\ln{\frac{e^x+1}{e^x-1}}>0 \\
+                  \iff & \ln{\frac{e^x+1}{e^x-1}} > 1                                                    \\
+                  \iff & \frac{e^x+1}{e^x-1} > e                                                             \\
+                  \iff & e^{x}<\frac{e+1}{e-1}                                                       \\
+                  \iff & x < \ln{\frac{e+1}{e-1}}
+                \end{align*}
+                $\therefore 0 < x < \ln{\frac{e+1}{e-1}}$
+          \item $f(x)$ is a one-to-one function on its maximal domain.\\
+                \begin{equation*}
+                  f^{-1}(\sin^{-1}\frac{1}{\ln{\frac{e^x+1}{e^x-1}}})=x
+                \end{equation*}
+                Substitute $x=\ln(\frac{2}{y-1}+1)$
+                \begin{align*}
+                  f^{-1}(\sin^{-1}\frac{1}{\ln{\frac{e^x+1}{e^x-1}}})
+                    & =f^{-1}(\sin^{-1}\frac{1}{\ln{(1+\frac{2}{e^x-1}})})             \\
+                    & =f^{-1}(\sin^{-1}\frac{1}{\ln{(1+\frac{2}{\frac{2}{y-1}+1-1}})}) \\
+                    & =f^{-1}(\sin^{-1}\frac{1}{\ln y}) = \ln(\frac{2}{y-1}+1)
+                \end{align*}
+                Substitute $y=e^{1/\sin{z}}$
+                \begin{align*}
+                  f^{-1}(\sin^{-1}\frac{1}{\ln y})
+                    & =f^{-1}(z)                        \\
+                    & =\ln(\frac{2}{y-1}+1)             \\
+                    & =\ln(\frac{2}{e^{1/\sin{z}}-1}+1)
+                \end{align*}
+                \begin{equation*}
+                  f^{-1}(x)=\ln(\frac{2}{e^{1/\sin{x}}-1}+1)
+                \end{equation*}
+        \end{enumerate}
+  \item
+        \begin{align*}
+          \lim_{x\to 1^{-}} f(x) &= \lim_{x\to 1^{-}} \frac{a}{x-1}[3\sin(x-1)-2\tan(\ln x)]\\
+            & =\lim_{x\to 1^{-}} \frac{a}{1}[3\cos(x-1)-2\sec^2(\ln x)\frac{1}{x}] &   & \text{by L'Hospital's Rule} \\
+          &=a\\
+          \therefore a=b \\
+          \lim_{x\to 1^{-}} f'(x) &= \lim_{x\to 1^{-}} \left[\frac{d}{dx}\left(\frac{a}{x-1}(3\sin(x-1)-2\tan(\ln x)) \right)\right] \\
+          &= a \lim_{x\to 1^{-}} \left[\frac{3\cos(x-1)-2\sec^2(\ln x)/x}{x-1} - \frac{3\sin(x-1) - 2\tan(\ln x)}{(x-1)^2} \right] \\
+          &= a \lim_{x\to 1^{-}} \left[\frac{2\cos(x-1)-2\sec^2(\ln x)/x}{x-1} - \frac{3\sin(x-1) - 2\tan(\ln x)+(x-1)\cos(x-1)}{(x-1)^2} \right] \\
+          &= ... \hspace{1cm} \text{This is left as an exercise for \sout{wolfram} the reader} \\
+          &= a 
+        \end{align*}
+        Define
+        \[d = \int_{0}^{1} e^{[\ln(t+1)]^c}\ dx\]
+        \begin{align*}
+          \lim_{x\to 1^-}f'(x) &= \frac{d}{dx} \left(\int_{4(x-1)}^{x^2} e^{x+[\ln(t+1)]^c}\ dx\right)_{x=1} \\
+          &= \left[e^x \frac{d}{dx} \left(\int_{4(x-1)}^{x^2} e^{[\ln(t+1)]^c}\ dx\right)\right]_{x=1} + \left[e^x \left(\int_{4(x-1)}^{x^2} e^{[\ln(t+1)]^c}\ dx\right)\right]_{x=1} \\
+          &= e^1 (2\cdot e^{[\ln(2)]^c]} - 4e^{[\ln 1]^c})+e^1\cdot d \\
+          &= e^1 (2\cdot e^{[\ln(2)]^c]} - 4)+e^1\cdot d
+        \end{align*}
+
+        On the other hand,
+        \[\lim_{x\rightarrow 1^+} f(x) = e^1 \cdot d\]
+
+        For $f$ to be continuous,
+        \[\lim_{x\rightarrow 1^-} f(x) = \lim_{x\rightarrow 1^+} f(x) \Rightarrow a = e\cdot d\]
+        Since $f$ is differentiable,
+        \[\lim_{x\rightarrow 1^-} f'(x) = a = \lim_{x\rightarrow 1^+} f'(x) = e\cdot d + e\cdot(2\cdot e^{[\ln(2)]^c]} - 4)\]
+        Therefore
+        \[2\cdot e^{[\ln(2)]^c]} - 4 = 0 \Rightarrow c=1\]
+        
+        \begin{align*}
+          d = \int_{0}^{1} e^{[\ln(t+1)]^c}\ dx &= \int_{0}^{1} e^{\ln(t+1)}\ dx \\
+            &= \int_{0}^{1} t+1 \ dx \\
+            &= \frac{3}{2}
+        \end{align*}
+        \[\therefore a=b=\frac{3}{2}e,c=1\]
+
+  \item
+        \begin{equation*}
+          f(1) = f(0) + f'\left(\frac{1}{2}\right) + Af''(c)
+        \end{equation*}
+        By Intermediate value theorem, $\exists a \in (0,1)$ such that $f'(a) = f(1) - f(0)$
+        \begin{equation*}
+          \therefore f'\left(\frac{1}{2}\right) + Af''(c) = f(1) - f(0) = f(a)
+        \end{equation*}
+        If $a=\frac{1}{2}$, then we can choose $A=0$ and $c=0.123$, and we are done
+
+        Otherwise, $a\neq \frac{1}{2}$
+
+        By Intermediate value theorem, $\exists b \in (a,\frac{1}{2})$ or $(\frac{1}{2},a)$ such that $(\frac{1}{2}-a)f''(b) = f'(\frac{1}{2}) - f'(a)$
+
+        Choose $c=b$ and $A=\frac{1}{2}-a$
+        \begin{equation*}
+          \therefore Af''(c) = \left(\frac{1}{2}-a\right)f''(b) = f(a) - f'\left(\frac{1}{2}\right)
+        \end{equation*}
+        \[\frac{1}{2}-1 \leq A = \frac{1}{2}-a \leq \frac{1}{2}-0\]
+        \[\therefore -\frac{1}{2} \leq A \leq \frac{1}{2}\]
+  \item
+        \begin{enumerate}
+          \item
+                \begin{align*}
+                  \int (Ax^2 + B)^{-3/2} dx
+                \end{align*}
+                Let $x = \sqrt{\frac{B}{A}}\tan \theta$, then $dx = \sqrt{\frac{B}{A}}\sec^2 \theta d\theta$
+                \begin{align*}
+                  \int (Ax^2 + B)^{-3/2} dx & = \int \left(A\left(\sqrt{\frac{B}{A}}\tan \theta\right)^2 + B\right)^{-3/2} \sqrt{\frac{B}{A}}\sec^2 \theta d\theta \\
+                                            & = \int (B \tan^2 \theta + B)^{-3/2} \sqrt{\frac{B}{A}}\sec^2 \theta d\theta                                          \\
+                                            & = \int (B \sec^2 \theta)^{-3/2} \sqrt{\frac{B}{A}}\sec^2 \theta d\theta                                              \\
+                                            & = \int \frac{1}{B\sqrt{A}\sec \theta} d\theta                                                                        \\
+                                            & = \frac{1}{B\sqrt{A}} (\sin \theta) + C                                                                              \\
+                                            & = \frac{1}{B\sqrt{A}} \left(\frac{\tan \theta}{\sqrt{\tan^2\theta+1}}\right) + C                                     \\
+                                            & = \frac{1}{B} \left(\frac{x}{\sqrt{Ax^2+B}}\right) + C
+                \end{align*}
+          \item
+                \begin{equation*}
+                  y = [(2x^2(2+\sin t)^4+2-\sin t)]^{-3/2}
+                \end{equation*}
+                \[[(2x^2(2+\sin t)^4+2-\sin t)]^{-3/2} = y = \frac{1}{8}\]
+                \[\therefore 2x^2(2+\sin t)^4+2-\sin t = 4 \]
+                \[\therefore x^2 = \frac{2+\sin t}{2(2+\sin t)^4} =  \frac{1}{2(2+\sin t)^3}\]
+                \[\therefore x = \pm \sqrt{\frac{1}{2(2+\sin t)^3}}\]
+
+                The intersection of the curves has $x$ values $-\sqrt{\frac{1}{2(2+\sin t)^3}}$ and $\sqrt{\frac{1}{2(2+\sin t)^3}}$. Let $p = \sqrt{\frac{1}{2(2+\sin t)^3}}$
+                \begin{align*}
+                  \text{Area} &= \int_{-p}^{p}y\,dx - \frac{1}{8}(2p)\\ 
+                              &= \left[\frac{x}{B\sqrt{Ax^2+B}} \right]_{-p}^{p} - \frac{p}{4} \hspace{3cm} \text{where } A = 2(2\sin t)^4 \text{ and } B=2-\sin t\\
+                              &= 2\left[\frac{p}{B\sqrt{Ap^2+B}} \right] - \frac{p}{4}\\
+                              &= 2\left[\frac{1}{B\sqrt{A+B/p^2}} \right] - \frac{p}{4}\\
+                              &= \frac{2}{(2-\sin t)\sqrt{2(2+\sin t)^4+(2-\sin t)(2)(2+\sin t)^3}} - \frac{1}{4\sqrt{2(2+\sin t)^3}}\\
+                              &= \frac{1}{(2-\sin t)(2+\sin t)\sqrt{2(2+\sin t)}} - \frac{1}{4(2+\sin t)\sqrt{2(2+\sin t)}}\\
+                              &= \frac{1}{(2+\sin t)\sqrt{2(2+\sin t)}}\left(\frac{1}{2-\sin t} - \frac{1}{4}\right)\\
+                              &= \frac{1}{(2+\sin t)\sqrt{2(2+\sin t)}}\left(\frac{2+\sin t}{4(2-\sin t)}\right)\\
+                              &= \frac{1}{4(2-\sin t)\sqrt{2(2+\sin t)}}
+                \end{align*}
+          \item Find the absolute min and max of $S(t) = \frac{1}{4(2-\sin t)\sqrt{2(2+\sin t)}}$
+          
+                This is equivalent to finding the max and min of $\frac{1}{4(2-x)\sqrt{2(2+x)}}$ for $x\in [-1,1]$
+                
+                Let $f(x) = \frac{1}{4(2-x)\sqrt{2(2+x)}}$
+                \[f'(x) = \frac{1}{4\sqrt{2}}\left(\frac{1}{(2-x)^2\sqrt{2+x}} - \frac{1}{2(2-x)(2+x)^{3/2}}\right) = 0\]
+                \[\therefore (2+x)-\frac{1}{2}(2-x) = 0\]
+                \[\therefore x = -\frac{2}{3}\]
+                \[f(-1)=\frac{1}{12\sqrt{2}}, f\left(-\frac{2}{3}\right)=\frac{3\sqrt{6}}{128}, f(1)=\frac{1}{4\sqrt{6}}\]
+                Absolute minimal is $\frac{3\sqrt{6}}{128}$, maximal is $\frac{1}{4\sqrt{6}}$
+        \end{enumerate}
+        \item 
+              \begin{enumerate}
+                \item \begin{align*}
+                        I_{n+2} &= \int_0^{\pi/2}\sin^{n+2} x\,dx \\
+                                &= \int_0^{\pi/2}\sin x\sin^{n+1} x\,dx \\
+                                &= \left[(-\cos x)\sin^{n+1} x\right]_0^{\pi/2} + (n+1)\int_0^{\pi/2}\cos^2 x\sin^{n} x\,dx \\
+                                &= (n+1)\int_0^{\pi/2}(1-\sin^2 x)\sin^{n} x\,dx \\
+                                &= (n+1)(I_n - I_{n+2})
+                      \end{align*}
+                      \[\therefore (n+2)I_{n+2} = (n+1)I_n\]
+                      \[\therefore I_{n+2} = \frac{n+1}{n+2}I_n\]
+                \item \[I_0 = \frac{\pi}{2}\]
+                      \[I_1 = 1\]
+                      \begin{align*}
+                        I_9 &= \frac{8}{9}I_7 \\
+                            &= \frac{8}{9}\times \frac{6}{7} I_5 \\
+                            &= \frac{8\times 6\times 4\times 2}{9\times 7\times 5\times 3} \\
+                            &= \frac{128}{315}\\
+                            \\
+                        I_{10} &= \frac{9}{10}I_8 \\
+                            &= \frac{9}{10}\times \frac{7}{8} I_6 \\
+                            &= \frac{9\times 7\times 5\times 3\times 1}{10\times 8\times 6\times 4\times 2} I_0 \\
+                            &= \frac{63\pi}{512}
+                      \end{align*}
+              \end{enumerate}
+  \item \begin{align*}
+          \int_0^{2\pi}\sqrt{\left(\frac{dx}{dt}\right)^2+\left(\frac{dy}{dt}\right)^2}\,dt &= \int_0^{2\pi}\sqrt{(1-\cos t)^2+(\sin t)^2}\,dt \\
+            &= \int_0^{2\pi}\sqrt{2-2\cos t}\,dt \\
+            &= \int_0^{2\pi}\sqrt{2-2(1-2\sin^2(t/2))}\,dt \\
+            &= \int_0^{2\pi} 2\sin(t/2)\,dt \\
+            &= [-4\cos(t/2)]_0^{2\pi} \\
+            &= 8
+        \end{align*}
+  \item Let $y = 2\tanh x - x$
+  
+        We want to find all stationary points on y
+        \[\frac{dy}{dx} = 2\sech ^2 x-1 = 0\]
+        \[\frac{4}{e^x-e^{-x}}=1\]
+        \[e^x+e^{-x}=4\]
+        \[e^x = 2\pm \sqrt{3}\]
+        $\therefore$ $y$ has exactly 2 stationary points at $x=\ln(2+\sqrt{3})$ and $x=\ln(2-\sqrt{3})$
+        
+        At $x=100$, $y\approx -98$ \\
+        At $x=\ln(2+\sqrt{3})$, $y\approx 0.451$ \\
+        At $x=\ln(2-\sqrt{3})$, $y\approx -0.451$ \\
+        At $x=-100$, $y\approx 98$
+        
+        And since $y$ is monotonous between those 3 intervals, there is exactly 1 solution for each interval.
+        
+        $\therefore$ the equation has exactly 3 solutions.
+  \item \[(x^2y-y)\frac{dy}{dx}+(xy^2+x)=0\]
+        \[\frac{dy}{dx} = -\frac{x(y^2+1)}{y(x^2-1)}\]
+        \[\int \frac{y}{y^2+1}\,dy = -\int \frac{x}{x^2-1}\,dx\]
+        \[\frac{1}{2}\ln(y^2+1) = -\frac{1}{2}\ln(1-x^2) + \frac{1}{2}\ln C\]
+        \[\ln(y^2+1) = \ln\left(\frac{C}{1-x^2}\right)\]
+        \[y^2+1 = \frac{C}{1-x^2}\]
+        \[y = \sqrt{\frac{C}{1-x^2} - 1} \text{ or } y = -\sqrt{\frac{C}{1-x^2} - 1} \text{ (rejected since $y>0$ at 0)}\]
+        \[\therefore y = \sqrt{\frac{C}{1-x^2} - 1}\]
+        Sub $y=1$ and $x=0$
+        \[1 = \sqrt{C - 1}\]
+        \[\therefore C=2\]
+        
+        \[\therefore y = \sqrt{\frac{2}{1-x^2} - 1}\]
+        
+\end{enumerate}
+\end{document}

@@ -1,0 +1,87 @@
+\documentclass{article}
+
+\usepackage{mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{textcomp}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\usepackage[margin=1in]{geometry}
+\setlength\parindent{0pt}
+\setlength{\parskip}{5px}
+
+\newtheorem{lemma}{Lemma}
+
+\newcommand\at[2]{\left.#1\right|_{#2}}
+\newcommand{\p}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\brac}[1]{\left[#1\right]}
+\newcommand{\R}{\mathbb{R}}
+
+\begin{document}
+
+\subsection*{Q1}
+
+\begin{enumerate}[label=\alph*.]
+\item False
+\item True
+\item True
+\item True
+\item True
+\item False
+\end{enumerate}
+
+\subsection*{Q2}
+
+\begin{enumerate}[label=\alph*.]
+\item
+\[\int_0^1 \int_0^{2-x^2} f(x,y)\ dy\ dx\]
+\item 3
+\item 4
+\item 7
+\end{enumerate}
+
+\subsection*{Q3}
+
+\begin{enumerate}[label=\alph*.]
+\item
+In circular coordinates
+\[f(r,\theta,z) = \frac{1}{4\pi} (\sqrt{1-r^2} - z)\]
+\item
+\[\frac{10}{3}\pi\]
+\item
+Take volume of half a sphere minus a spherical cap, and divide that by 2
+\[\frac{1}{2}\paren{\frac{1}{2}\frac{4}{3}\pi(2)^3 - \frac{\pi(2-\sqrt{2})^2}{3}(6-(2-\sqrt{2}))}\]
+\end{enumerate}
+
+\subsection*{Q4}
+
+\begin{enumerate}[label=\alph*.]
+\item Yes. The potential function
+\[\frac{1}{2}x^2 + \frac{1}{2}y^2 + \frac{1}{2}z^2\]
+works
+\item Let $E$ be the solid bounded by $S$ and $D$. Note that the flux across $D$ is $0$, as $z=0$ in $D$. Hence, the flux across $S$ is the same as the flux across the surface of $E$, and we can apply Divergence Theorem.
+\[\nabla \cdot F = 3\]
+\[\iint_S F\cdot dA = \iiint_E 3\ dV = \pi\]
+\item 20
+\end{enumerate}
+
+\subsection*{Q5}
+
+\begin{enumerate}[label=\alph*.]
+\item Change coordinates to $u,v,z$, where $u=x+y, v=x-2y$, then the volume has $-1 \leq v \leq 1, 0 \leq u \leq 2, \frac{3}{2}(2u+v) -3 \leq z \leq \frac{3}{2}(2u+v) -1$
+\[\p{(u,v)}{(x,y)} = \abs{\begin{pmatrix}
+1 & 1 \\ 1 & -2
+\end{pmatrix}} = -3\]
+\[
+\int_{-1}^1 \int_0^2 \int_{\frac{3}{2}(2u+v)-3}^{\frac{3}{2}(2u+v) -1} \frac{1}{3}\ dz\ du\ dv = \frac{8}{3}
+\]
+\end{enumerate}
+
+\end{document}

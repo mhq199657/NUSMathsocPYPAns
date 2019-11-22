@@ -54,7 +54,7 @@
 In circular coordinates
 \[f(r,\theta,z) = \frac{1}{4\pi} (\sqrt{1-r^2} - z)\]
 \item
-\[\frac{10}{3}\pi\]
+\[\int_0^{2\pi} \int_0^1 \int_0^{\sqrt{4-r^2}} 2zr\ dz\ dr\ d\theta = \frac{7}{2}\pi\]
 \item
 Take volume of half a sphere minus a spherical cap, and divide that by 2
 \[\frac{1}{2}\paren{\frac{1}{2}\frac{4}{3}\pi(2)^3 - \frac{\pi(2-\sqrt{2})^2}{3}(6-(2-\sqrt{2}))}\]
@@ -75,13 +75,24 @@ works
 \subsection*{Q5}
 
 \begin{enumerate}[label=\alph*.]
-\item Change coordinates to $u,v,z$, where $u=x+y, v=x-2y$, then the volume has $-1 \leq v \leq 1, 0 \leq u \leq 2, \frac{3}{2}(2u+v) -3 \leq z \leq \frac{3}{2}(2u+v) -1$
+\item Change coordinates to $u,v,z$, where $u=x+y, v=x-2y$, then the volume has $-1 \leq v \leq 1, 0 \leq u \leq 2, \frac{2}{3}(2u+v) -3 \leq z \leq \frac{2}{3}(2u+v) -1$
 \[\p{(u,v)}{(x,y)} = \abs{\begin{pmatrix}
 1 & 1 \\ 1 & -2
 \end{pmatrix}} = -3\]
 \[
-\int_{-1}^1 \int_0^2 \int_{\frac{3}{2}(2u+v)-3}^{\frac{3}{2}(2u+v) -1} \frac{1}{3}\ dz\ du\ dv = \frac{8}{3}
+\int_{-1}^1 \int_0^2 \int_{\frac{2}{3}(2u+v)-3}^{\frac{2}{3}(2u+v) -1} \frac{1}{3}\ dz\ du\ dv = \frac{8}{3}
 \]
+
+\item
+\[-1 \leq y \leq 1\]
+\[0 \leq z \leq 1-y^2\]
+\[0 \leq x \leq 1-z\]
+Hence
+\[0 \leq x \leq 1-z \leq 1\]
+\[0 \leq z \leq 1-x\]
+\[y^2 \leq 1-z \implies -\sqrt{1-z} \leq y \leq \sqrt{1-z}\]
 \end{enumerate}
+Hence
+\[\int_{-1}^{1} \int_0^{1-y^2} \int_0^{1-z} f(x,y,z)\ dx\ dz\ dy = \int_0^1 \int_0^{1-x} \int_{-\sqrt{1-z}}^{\sqrt{1-z}} f(x,y,z)\ dy\ dz\ dx\]
 
 \end{document}

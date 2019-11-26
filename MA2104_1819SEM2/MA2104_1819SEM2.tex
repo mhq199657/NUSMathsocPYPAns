@@ -23,6 +23,7 @@
 \newcommand{\paren}[1]{\left(#1\right)}
 \newcommand{\brac}[1]{\left[#1\right]}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\angbrac}[1]{\left\langle #1 \right\rangle}
 
 \begin{document}
 
@@ -319,20 +320,38 @@ Hence,
 \]
 
 \item
-\[
-\nabla\cdot F = 2z
-\]
+
+Let
+\[G(x,y,z) = \angbrac{\frac{x}{(x^2+y^2+z^2)^{3/2}},\frac{y}{(x^2+y^2+z^2)^{3/2}},\frac{z}{(x^2+y^2+z^2)^{3/2}}} = \frac{r}{|r|^3}\]
+\[H(x,y,z) = \angbrac{0,0,z^2}\]
+Then, $F(x,y,z) = G(x,y,z) + H(x,y,z)$
+
+Note that
+\[\nabla \cdot G = 0 \text{ for } r\neq 0\]
+\[\nabla \cdot H = 2z\]
 
 Let $E$ be the solid ellipsoid $x^2+\frac{y^2}{4}+\frac{z^2}{9}=1$.
 
-Hence,
 \begin{align*}
-\int_S F\cdot dS
-&= \iiint_E (\nabla\cdot F)\ dV \\
+\int_S H\cdot dS
+&= \iiint_E (\nabla\cdot H)\ dV \\
 &= \iiint_E 2z\ dV \\
-&= 0
+&= 0 & \text{Due to symmetry}
 \end{align*}
-Due to symmetry.
+
+Let $D$ be the solid ellipsoid minus the sphere centered at $(0,0,0)$ with radius $r_0 = 1/2$, and let $C$ be the surface of that sphere.
+\[
+\int_S G\cdot dS - \int_C G\cdot dS = \iiint_D(\nabla\cdot G)\ dV = 0
+\]
+\[\therefore \int_S G\cdot dS = \int_C G\cdot dS\]
+\[
+\int_C G\cdot dS = \int_C (G\cdot n)\ dS = \int_C \paren{\frac{r}{|r|^3}\cdot n}\ dS = \int_C \frac{1}{|r|^2}\ dS = 4\pi{r_0}^2 \frac{1}{{r_0}^2} = 4\pi
+\]
+Hence,
+\[
+\int_S F\cdot dS = \int_S H\cdot dS + \int_S G\cdot dS = 4\pi
+\]
+
 \end{enumerate}
 
 \end{document}

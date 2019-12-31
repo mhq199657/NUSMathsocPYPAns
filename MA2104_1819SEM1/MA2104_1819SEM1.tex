@@ -51,13 +51,27 @@
 
 \begin{enumerate}[label=\alph*.]
 \item
-In circular coordinates
-\[f(r,\theta,z) = \frac{1}{4\pi} (\sqrt{1-r^2} - z)\]
+Let the density, in circular coordinates, be $f(r,\theta,z) = kz$
+\begin{align*}
+\int_0^{2\pi} \int_0^2 \int_0^{\sqrt{4-r^2}} kzr\ dz\ dr\ d\theta
+&= 2\pi \int_0^2 \frac{1}{2} kr(4-r^2)\ dr \\
+&= \pi k \int_0^2 4r-r^3\ dr \\
+&= \pi k \brac{2r^2-\frac{1}{4}r^4}_0^2 \\
+&= 4\pi k \\
+&= 1
+\end{align*}
+\[\therefore k=\frac{1}{4\pi}\]
+\[\therefore f(r,\theta,z) = \frac{z}{4\pi}\]
+
 \item
 \[\int_0^{2\pi} \int_0^1 \int_0^{\sqrt{4-r^2}} 2zr\ dz\ dr\ d\theta = \frac{7}{2}\pi\]
 \item
 Take volume of half a sphere minus a spherical cap, and divide that by 2
-\[\frac{1}{2}\paren{\frac{1}{2}\frac{4}{3}\pi(2)^3 - \frac{\pi(2-\sqrt{2})^2}{3}(6-(2-\sqrt{2}))}\]
+\begin{align*}
+\frac{1}{2}\paren{\frac{1}{2}\frac{4}{3}\pi(2)^3 - \frac{\pi(2-\sqrt{2})^2}{3}(6-(2-\sqrt{2}))}
+&= \frac{8\pi}{3} - \frac{\pi(2-\sqrt{2})^2(4+\sqrt{2})}{3} \\
+&= \frac{8\pi}{3} - \frac{2\pi(8-5\sqrt{2})}{3}
+\end{align*}
 \end{enumerate}
 
 \subsection*{Q4}

@@ -1,8 +1,8 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
-% \usepackage{amsthm}
-% \usepackage{amsmath}
-% \usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{enumitem}
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
@@ -11,7 +11,7 @@
 \usepackage{float}
 \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
 \usepackage{mathabx}
-% \usepackage{siunitx}
+\usepackage{siunitx}
 % \DeclareMathOperator{\tr}{tr}
 \usepackage{geometry}
  \geometry{
@@ -306,14 +306,14 @@ So we can write:
     &= \int \frac{1}{\sqrt{(1+a)(1-a)}}\frac{2}{1+t^2} \ dt \\
     &= \int \frac{1}{\sqrt{1-a^2}}\frac{2}{1+t^2} \ dt \\
     &= \frac{2\tan^{-1}{t}}{\sqrt{1-a^2}}+c \\
-    &= \frac{2\tan^{-1}[{\sqrt{\frac{1-a}{1+a}}\tan(\frac{x}{2})}]}{\sqrt{1-a^2}}+c
+    &= \frac{2\tan^{-1}\left[{\sqrt{\frac{1-a}{1+a}}\tan(\frac{x}{2})}\right]}{\sqrt{1-a^2}}+c
 \intertext{Else, if $a>1$, sub $t=\sqrt{\frac{a-1}{1+a}}\tan(x/2)$, then
 $\frac{dx}{dt}=\sqrt{\frac{1+a}{a-1}}\frac{2}{\sec^2{(x/2)}}$.}
     \int \frac{1}{1+a}\frac{\sec^2(x/2)}{1+\frac{1-a}{1+a}\tan^2(x/2)} \ dx&= \int \frac{1}{1+a}\frac{\sec^2(x/2)}{1-t^2}\sqrt{\frac{1+a}{a-1}}\frac{2}{\sec^2{(x/2)}}\ dt \\
     &= \int \frac{1}{\sqrt{(1+a)(a-1)}}\frac{2}{1-t^2} \ dt \\
     &= \int \frac{1}{\sqrt{a^2-1}}\frac{2}{1-t^2} \ dt \\
-    &= \frac{1}{\sqrt{a^2-1}}\ln \abs*{\frac{t+1}{t-1}} + c \\
-    &= \frac{1}{\sqrt{a^2-1}}\ln \abs*{{\frac{\sqrt{\frac{a-1}{1+a}}\tan(\frac{x}{2})+1}{\sqrt{\frac{a-1}{1+a}}\tan(\frac{x}{2})-1}}}+ c
+    &= \frac{1}{\sqrt{a^2-1}}\ln \left|{\frac{t+1}{t-1}} \right|+ c \\
+    &= \frac{1}{\sqrt{a^2-1}}\ln \left|{{\frac{\sqrt{\frac{a-1}{1+a}}\tan(\frac{x}{2})+1}{\sqrt{\frac{a-1}{1+a}}\tan(\frac{x}{2})-1}}}\right|+ c
 \end{align*}
 \end{document}
 
